@@ -26,9 +26,9 @@ function App() {
         </a>
       </header>
     </div>
-    <UserProvider>
-  <Application />
-</UserProvider>
+//     <UserProvider>
+//   <Application />
+// <UserProvider />
   );
 }
 
