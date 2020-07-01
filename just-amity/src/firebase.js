@@ -2,18 +2,21 @@ import firebase from "firebase/app";
 import "firebase/auth";
 import "firebase/firestore";
 import { functions } from "firebase";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import  { Redirect } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyALjXQRCCET-Y_5sFLV3ofj0wLs7VGhJns",
-  authDomain: "justamity.firebaseapp.com",
-  databaseURL: "https://justamity.firebaseio.com",
-  projectId: "justamity",
-  storageBucket: "justamity.appspot.com",
-  messagingSenderId: "502952254044",
-  appId: "1:502952254044:web:47df39709ecf57667ce499",
-  measurementId: "G-R02QYTYWZ9"
-};
-// Initialize Firebase
+    apiKey: "AIzaSyCd05CA651nbJSjfG3a_XXxhth8zfQhYaM",
+    authDomain: "users-7ee42.firebaseapp.com",
+    databaseURL: "https://users-7ee42.firebaseio.com",
+    projectId: "users-7ee42",
+    storageBucket: "users-7ee42.appspot.com",
+    messagingSenderId: "385725692286",
+    appId: "1:385725692286:web:9a3c58753800fa97d4db2f"
+  };
+
 firebase.initializeApp(firebaseConfig);
 
 export const auth = firebase.auth();
@@ -24,7 +27,16 @@ const provider = new firebase.auth.GoogleAuthProvider();
   hd: "berkeley.edu"
 });
 export const signInWithGoogle = () => {
-  auth.signInWithPopup(provider);
+  firebase.auth().signInWithPopup(provider)
+    .then(function(result) {
+      var token = result.credential.accessToken;
+ 
+      var user = result.user;
+      console.log(getUserDocument());
+    })
+    .catch(function(error) {
+      console.log("Error signing in:", error);
+    });
 };
 
 export const generateUserDocument = async (user, additionalData) => {
@@ -56,27 +68,12 @@ const getUserDocument = async uid => {
 
     return {
       uid,
-      ...userDocument.data()
+      userDocument
     };
   } catch (error) {
     console.error("Error fetching user", error);
   }
 };
 
-//const provider = new firebase.auth.GoogleAuthProvider();
-//     provider.setCustomParameters({
-//   hd: "berkeley.edu"
-// });
-// firebase.auth().signInWithPopup(provider)
-//   .then(function(result) {
-//     // This gives you a Google Access Token. You can use it to access the Google API.
-//     var token = result.credential.accessToken;
-//
-//     // The signed-in user info.
-//     var user = result.user;
-//
-//     // ...
-//   })
-//   .catch(function(error) {
-//     console.log("Error signing in:", error);
-//   });
+console.log(getUserDocument(1));
+

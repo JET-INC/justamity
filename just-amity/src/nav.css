@@ -1,0 +1,39 @@
+h1 {
+  margin:0;
+}
+
+.top {
+  /*background-color: #BBE4FB;*/
+  overflow:hidden;
+}
+
+.top-child {
+  float: left;
+}
+
+.top-child-right {
+}
+
+.button-div {
+  float: right;
+  margin-top: 10px;
+}
+
+a {
+  margin: 14px;
+  color: #d7ba28;
+  font-size: 16px;
+}
+
+button {
+  color: #87cef8;
+  background-color: inherit;
+  border: 2px solid #87cef8;
+  border-radius: 5px;
+  padding: 6px 12px;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #e7f5fe;
+}

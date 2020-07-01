@@ -1,5 +1,23 @@
+#root {
+  height: 100%;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+}
+
+header {
+  height: 100%;
+}
+
+main {
+  height: 100%;
+}
+
 .App {
   text-align: center;
+  height: 100%;
 }
 
 .App-logo {
@@ -14,8 +32,8 @@
 } */
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+  background-color: white;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,7 +43,26 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #6ec5f7;
+  font-size: 20px;
+}
+
+.profile-img {
+  max-width: 200px;
+  max-height: 200px;
+}
+
+h2 {
+  color: grey;
+  margin-bottom: 0px;
+}
+
+h1 {
+  color: grey;
+}
+
+p {
+  word-wrap: break-word;
 }
 
 /* @keyframes App-logo-spin {
@@ -35,4 +72,5 @@
   to {
     transform: rotate(360deg);
   }
-} */
+} 
+*/
