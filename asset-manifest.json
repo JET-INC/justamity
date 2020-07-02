@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/justamity/static/css/main.661b5a78.chunk.css",
-    "main.js": "/justamity/static/js/main.9fb4b0ea.chunk.js",
-    "main.js.map": "/justamity/static/js/main.9fb4b0ea.chunk.js.map",
+    "main.js": "/justamity/static/js/main.edfdb059.chunk.js",
+    "main.js.map": "/justamity/static/js/main.edfdb059.chunk.js.map",
     "runtime-main.js": "/justamity/static/js/runtime-main.c2860ad6.js",
     "runtime-main.js.map": "/justamity/static/js/runtime-main.c2860ad6.js.map",
     "static/js/2.1dec0807.chunk.js": "/justamity/static/js/2.1dec0807.chunk.js",
     "static/js/2.1dec0807.chunk.js.map": "/justamity/static/js/2.1dec0807.chunk.js.map",
     "index.html": "/justamity/index.html",
-    "precache-manifest.fbef0c325b508d357200681b3b0b1416.js": "/justamity/precache-manifest.fbef0c325b508d357200681b3b0b1416.js",
+    "precache-manifest.5ee7f278f4f6a58d36fc4efb679dd643.js": "/justamity/precache-manifest.5ee7f278f4f6a58d36fc4efb679dd643.js",
     "service-worker.js": "/justamity/service-worker.js",
     "static/css/main.661b5a78.chunk.css.map": "/justamity/static/css/main.661b5a78.chunk.css.map",
     "static/js/2.1dec0807.chunk.js.LICENSE.txt": "/justamity/static/js/2.1dec0807.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c2860ad6.js",
     "static/js/2.1dec0807.chunk.js",
     "static/css/main.661b5a78.chunk.css",
-    "static/js/main.9fb4b0ea.chunk.js"
+    "static/js/main.edfdb059.chunk.js"
   ]
 }
