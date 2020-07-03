@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/justamity/precache-manifest.541c9bd46a519b7c8ab02282f8971dcd.js"
+  "/justamity/precache-manifest.90c5eb000e4c581e23b4850d2fcba9c4.js"
 );
 
 self.addEventListener('message', (event) => {
