@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/justamity/static/css/main.39768802.chunk.css",
-    "main.js": "/justamity/static/js/main.953af1bf.chunk.js",
-    "main.js.map": "/justamity/static/js/main.953af1bf.chunk.js.map",
+    "main.css": "/justamity/static/css/main.f0b25fda.chunk.css",
+    "main.js": "/justamity/static/js/main.57c7b499.chunk.js",
+    "main.js.map": "/justamity/static/js/main.57c7b499.chunk.js.map",
     "runtime-main.js": "/justamity/static/js/runtime-main.c2860ad6.js",
     "runtime-main.js.map": "/justamity/static/js/runtime-main.c2860ad6.js.map",
     "static/js/2.5f7c86dc.chunk.js": "/justamity/static/js/2.5f7c86dc.chunk.js",
     "static/js/2.5f7c86dc.chunk.js.map": "/justamity/static/js/2.5f7c86dc.chunk.js.map",
     "index.html": "/justamity/index.html",
-    "precache-manifest.90c5eb000e4c581e23b4850d2fcba9c4.js": "/justamity/precache-manifest.90c5eb000e4c581e23b4850d2fcba9c4.js",
+    "precache-manifest.c0ac79724783326bae573c7493739ff3.js": "/justamity/precache-manifest.c0ac79724783326bae573c7493739ff3.js",
     "service-worker.js": "/justamity/service-worker.js",
-    "static/css/main.39768802.chunk.css.map": "/justamity/static/css/main.39768802.chunk.css.map",
+    "static/css/main.f0b25fda.chunk.css.map": "/justamity/static/css/main.f0b25fda.chunk.css.map",
     "static/js/2.5f7c86dc.chunk.js.LICENSE.txt": "/justamity/static/js/2.5f7c86dc.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c2860ad6.js",
     "static/js/2.5f7c86dc.chunk.js",
-    "static/css/main.39768802.chunk.css",
-    "static/js/main.953af1bf.chunk.js"
+    "static/css/main.f0b25fda.chunk.css",
+    "static/js/main.57c7b499.chunk.js"
   ]
 }
