@@ -23,17 +23,25 @@ a {
   margin: 14px;
   color: #d7ba28;
   font-size: 16px;
+  text-decoration: none;
+}
+
+a:hover {
+  color: lightgrey;
 }
 
 button {
-  color: #87cef8;
-  background-color: inherit;
-  border: 2px solid #87cef8;
-  border-radius: 5px;
-  padding: 6px 12px;
+  color: #4d4d4d;
+  background-color: #e7f5fe;
+  border: 0px solid #e7f5fe;
+  border-radius: 0px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+  padding: 8px 12px;
   font-size: 16px;
 }
 
 button:hover {
-  background: #e7f5fe;
+  background: #cfecfc;
+  color: black;
 }

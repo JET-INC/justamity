@@ -52,6 +52,280 @@ main {
   max-height: 200px;
 }
 
+.profile-img-head {
+  margin-top: 0px;
+  max-height: 34px;
+  float: left;
+}
+
+.profile-div {
+  margin-top: 0px;
+  float: right;
+  display: flex;
+  text-align: center;
+  margin-right: 0px;
+}
+
+.grey {
+  background-color: #efefef;
+  padding: 1px;
+}
+
+.grey:hover {
+  background-color: #f3eabe;
+  padding: 1px;
+}
+
+.profile-top-right-name {
+  color: #4d4d4d;
+  text-decoration: none;
+  float: right;
+  margin: 6px;
+  margin-left: 10px;
+  font-size: 16px;
+}
+
+.chat-list {
+  width: 22vw;
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  border-style: solid;
+  border-color: lightgrey;
+  border-width: 0px 1px 0px 0px;
+  padding-left: 10px;
+}
+
+.chat-list-title {
+  font-size: 25px;
+  font-weight: bold;
+  margin: 0px;
+  margin-bottom: 10px;
+}
+
+.chat-list-item {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+}
+
+.chat-list-item-active {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  background-color: #eeeeee;
+  padding-left: 10px;
+  margin-right: 10px;
+  margin-left: 0px;
+  border-radius: 10px;
+}
+
+.chat-list-item-text {
+  text-align: left;
+  margin: auto;
+  margin-left: 12px;
+  margin-bottom: 0px;
+  width: 75%;
+}
+
+.chat-list-item-profile {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.chat-list-item-name {
+  font-size: 16px;
+  color: black;
+  margin: 0px;
+  padding: 0px;
+}
+
+.chat-list-item-message {
+  font-size: 14px;
+  color: #999999;
+  margin-top: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-bottom: 1px;
+}
+
+.chat-focus {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 100;
+}
+
+.chat-focus-top {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  border-style: solid;
+  border-color: lightgrey;
+  border-width: 0px 0px 1px 0px;
+  margin-bottom: 10px;
+}
+
+.chat-focus-top-text {
+  text-align: left;
+  margin-left: 12px;
+  margin-bottom: 0px;
+  align-items: center;
+
+}
+
+.chat-focus-top-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0px;
+
+}
+
+.chat-focus-top-desc {
+  font-size: 14px;
+  color: #999999;
+  margin: 0px;
+}
+
+.chat-focus-top-profile {
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.chat-focus-messages::-webkit-scrollbar {
+  display: none;
+  max-height: 73.25vh;
+}
+
+.chat-focus-messages {
+  overflow: scroll;
+  scrollbar-width: none;  /* Firefox */
+  max-height: 73.25vh;
+}
+
+.chat-focus-bottom {
+  display: inline-block;
+  width: 100%;
+}
+
+.chat-focus-bottom-left-outer {
+  text-align: left;
+}
+
+.chat-focus-bottom-right-outer {
+  text-align: right;
+}
+
+.chat-focus-bottom-left {
+  display: inline-block;
+  text-align: left;
+  background-color: #f3eabe;
+  margin: 1px;
+  margin-left: 10px;
+  border-radius: 10px;
+}
+
+.chat-focus-bottom-right {
+  display: inline-block;
+  text-align: right;
+  background-color: #0e9ef1;
+  margin: 1px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.chat-focus-bottom-message-left {
+  margin: 0px;
+  padding: 7px 12px 7px 12px;;
+  font-size: 14px;
+}
+
+.chat-focus-bottom-message-right {
+  margin: 0px;
+  padding: 7px 12px 7px 12px;;
+  font-size: 14px;
+  color: white;
+}
+
+.chat-focus-type {
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+  margin: 10px;
+  width: 100%;
+}
+
+.chat-focus-type-input {
+  margin: auto;
+  margin-left: 24%;
+  font-size: 14px;
+  border-radius: 10px;
+  border-width: 1px;
+  text-indent: 8px;
+  padding: 8px;
+  border-style: solid;
+  border-color: darkgrey;
+  border-width: 0px;
+  width: 75%;
+  background-color: #f2f2f2;
+}
+
+.chat-focus-type-input::placeholder {
+  color: grey;
+  opacity: 0.8; /* Firefox */
+}
+
+
+.horizontal {
+  display: flex;
+}
+
+.footer {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  padding-bottom: 20px;
+  bottom: 0;
+  height: 30px;
+  width: 100%;
+}
+
+.toast {
+  background-color: #d6f5d6;
+  width: 200px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 8px;
+  padding-bottom: 2px;
+  visibility: hidden;
+}
+
+.toast-red {
+  background-color: #ffcccc;
+  width: 200px;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  padding: 10px;
+  padding-top: 8px;
+  padding-bottom: 2px;
+  animation: fadeOut 2s forwards;
+}
+
 h2 {
   color: grey;
   margin-bottom: 0px;

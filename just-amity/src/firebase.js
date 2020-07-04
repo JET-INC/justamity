@@ -23,16 +23,13 @@ export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
 const provider = new firebase.auth.GoogleAuthProvider();
-    provider.setCustomParameters({
+/*provider.setCustomParameters({
   hd: "berkeley.edu"
-});
+});*/
 export const signInWithGoogle = () => {
   firebase.auth().signInWithPopup(provider)
     .then(function(result) {
-      var token = result.credential.accessToken;
- 
-      var user = result.user;
-      console.log(getUserDocument());
+        
     })
     .catch(function(error) {
       console.log("Error signing in:", error);
