@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/justamity/static/css/main.bc94d599.chunk.css",
+    "main.css": "/justamity/static/css/main.64f3f816.chunk.css",
     "main.js": "/justamity/static/js/main.d6562430.chunk.js",
     "main.js.map": "/justamity/static/js/main.d6562430.chunk.js.map",
     "runtime-main.js": "/justamity/static/js/runtime-main.c2860ad6.js",
@@ -8,9 +8,9 @@
     "static/js/2.fad4497f.chunk.js": "/justamity/static/js/2.fad4497f.chunk.js",
     "static/js/2.fad4497f.chunk.js.map": "/justamity/static/js/2.fad4497f.chunk.js.map",
     "index.html": "/justamity/index.html",
-    "precache-manifest.354c56c6d07b30ad19a43ad093193d35.js": "/justamity/precache-manifest.354c56c6d07b30ad19a43ad093193d35.js",
+    "precache-manifest.29134206a14e45630636b02a9d264a0c.js": "/justamity/precache-manifest.29134206a14e45630636b02a9d264a0c.js",
     "service-worker.js": "/justamity/service-worker.js",
-    "static/css/main.bc94d599.chunk.css.map": "/justamity/static/css/main.bc94d599.chunk.css.map",
+    "static/css/main.64f3f816.chunk.css.map": "/justamity/static/css/main.64f3f816.chunk.css.map",
     "static/js/2.fad4497f.chunk.js.LICENSE.txt": "/justamity/static/js/2.fad4497f.chunk.js.LICENSE.txt",
     "static/media/mail.png": "/justamity/static/media/mail.dce4df7f.png",
     "static/media/people-happy.jpg": "/justamity/static/media/people-happy.0981ac3b.jpg",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.c2860ad6.js",
     "static/js/2.fad4497f.chunk.js",
-    "static/css/main.bc94d599.chunk.css",
+    "static/css/main.64f3f816.chunk.css",
     "static/js/main.d6562430.chunk.js"
   ]
 }
