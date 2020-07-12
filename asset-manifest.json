@@ -1,25 +1,25 @@
 {
   "files": {
-    "main.css": "/justamity/static/css/main.385d0871.chunk.css",
-    "main.js": "/justamity/static/js/main.175b309b.chunk.js",
-    "main.js.map": "/justamity/static/js/main.175b309b.chunk.js.map",
+    "main.css": "/justamity/static/css/main.bc94d599.chunk.css",
+    "main.js": "/justamity/static/js/main.d6562430.chunk.js",
+    "main.js.map": "/justamity/static/js/main.d6562430.chunk.js.map",
     "runtime-main.js": "/justamity/static/js/runtime-main.c2860ad6.js",
     "runtime-main.js.map": "/justamity/static/js/runtime-main.c2860ad6.js.map",
-    "static/js/2.15a44db6.chunk.js": "/justamity/static/js/2.15a44db6.chunk.js",
-    "static/js/2.15a44db6.chunk.js.map": "/justamity/static/js/2.15a44db6.chunk.js.map",
+    "static/js/2.fad4497f.chunk.js": "/justamity/static/js/2.fad4497f.chunk.js",
+    "static/js/2.fad4497f.chunk.js.map": "/justamity/static/js/2.fad4497f.chunk.js.map",
     "index.html": "/justamity/index.html",
-    "precache-manifest.b7847908c7831a7a0f11d9154d551044.js": "/justamity/precache-manifest.b7847908c7831a7a0f11d9154d551044.js",
+    "precache-manifest.354c56c6d07b30ad19a43ad093193d35.js": "/justamity/precache-manifest.354c56c6d07b30ad19a43ad093193d35.js",
     "service-worker.js": "/justamity/service-worker.js",
-    "static/css/main.385d0871.chunk.css.map": "/justamity/static/css/main.385d0871.chunk.css.map",
-    "static/js/2.15a44db6.chunk.js.LICENSE.txt": "/justamity/static/js/2.15a44db6.chunk.js.LICENSE.txt",
-    "static/media/mail.png": "/justamity/static/media/mail.040e5b1d.png",
+    "static/css/main.bc94d599.chunk.css.map": "/justamity/static/css/main.bc94d599.chunk.css.map",
+    "static/js/2.fad4497f.chunk.js.LICENSE.txt": "/justamity/static/js/2.fad4497f.chunk.js.LICENSE.txt",
+    "static/media/mail.png": "/justamity/static/media/mail.dce4df7f.png",
     "static/media/people-happy.jpg": "/justamity/static/media/people-happy.0981ac3b.jpg",
-    "static/media/sc2.png": "/justamity/static/media/sc2.2548fe64.png"
+    "static/media/sc2.png": "/justamity/static/media/sc2.db318557.png"
   },
   "entrypoints": [
     "static/js/runtime-main.c2860ad6.js",
-    "static/js/2.15a44db6.chunk.js",
-    "static/css/main.385d0871.chunk.css",
-    "static/js/main.175b309b.chunk.js"
+    "static/js/2.fad4497f.chunk.js",
+    "static/css/main.bc94d599.chunk.css",
+    "static/js/main.d6562430.chunk.js"
   ]
 }
