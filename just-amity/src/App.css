@@ -3,8 +3,8 @@
 }
 
 body {
-  height: 100vh;
-  overflow: hidden;
+  height: 100%;
+  overflow-x: hidden;
 }
 
 header {
@@ -47,53 +47,97 @@ main {
   font-size: 20px;
 }
 
+.slogan {
+  font-size: 40px;
+  font-weight: bold;
+  color: #707070;
+  margin: 20px;
+}
+
+.home-img {
+  width: 65vw;
+  max-width: 575px;
+}
+
+.symbol {
+  padding: 0px;
+  height: 32px;
+  margin-top: 4px;
+  margin-right: 10px;
+  border-style: solid;
+  border-width: 1.5px;
+  border-radius: 5px;
+  border-color: lightgrey;
+}
+
+.symbol:hover {
+  border-color: lightgrey;
+  background-color: #efefef;
+  filter: brightness(85%) sepia(89%) hue-rotate(-7deg);
+}
+
 .profile-img {
   max-width: 200px;
   max-height: 200px;
+  border-radius: 10%;
 }
 
 .profile-img-head {
   margin-top: 0px;
   max-height: 34px;
-  float: left;
+  vertical-align: middle;
+  border-radius: 5px;
 }
 
 .profile-div {
   margin-top: 0px;
-  float: right;
   display: flex;
+  align-items: center;
   text-align: center;
   margin-right: 0px;
+  margin-left: auto;
+  margin-bottom: 0px;
+  padding: 0px;
 }
 
 .grey {
   background-color: #efefef;
   padding: 1px;
+  padding-bottom: 1.5px;
+  border-radius: 5px;
 }
 
 .grey:hover {
-  background-color: #f3eabe;
-  padding: 1px;
+  background-color: rgb(254, 240, 186);
 }
 
 .profile-top-right-name {
   color: #4d4d4d;
   text-decoration: none;
   float: right;
-  margin: 6px;
+  margin: 5px;
+  margin-top: 6px;
   margin-left: 10px;
+  margin-right: 10px;
   font-size: 16px;
+  text-align: left;
+  vertical-align: middle;
 }
 
 .chat-list {
   width: 22vw;
-  height: 100vh;
+  height: calc(100vh - 65px);
   overflow-y: auto;
-  scrollbar-width: thin;
+  overflow-x: visible;
+  scrollbar-width: none;
   border-style: solid;
   border-color: lightgrey;
   border-width: 0px 1px 0px 0px;
   padding-left: 10px;
+}
+
+.chat-list::-webkit-scrollbar {
+  display: none;
 }
 
 .chat-list-title {
@@ -128,7 +172,7 @@ main {
   margin: auto;
   margin-left: 12px;
   margin-bottom: 0px;
-  width: 75%;
+  max-width: 75%;
 }
 
 .chat-list-item-profile {
@@ -144,9 +188,28 @@ main {
   padding: 0px;
 }
 
+.chat-list-item-name-unread {
+  font-size: 16px;
+  color: black;
+  font-weight: bold;
+  margin: 0px;
+  padding: 0px;
+}
+
 .chat-list-item-message {
   font-size: 14px;
   color: #999999;
+  margin-top: 0px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding-bottom: 1px;
+}
+
+.chat-list-item-message-unread {
+  font-size: 14px;
+  color: black;
+  font-weight: bold;
   margin-top: 0px;
   overflow: hidden;
   white-space: nowrap;
@@ -175,7 +238,6 @@ main {
   margin-left: 12px;
   margin-bottom: 0px;
   align-items: center;
-
 }
 
 .chat-focus-top-name {
@@ -200,17 +262,18 @@ main {
 
 .chat-focus-messages::-webkit-scrollbar {
   display: none;
-  max-height: 73.25vh;
+  min-height: calc(100vh - 200px);
+  max-height: calc(100vh - 200px);
 }
 
 .chat-focus-messages {
   overflow: scroll;
   scrollbar-width: none;  /* Firefox */
-  max-height: 73.25vh;
+  min-height: calc(100vh - 200px);
+  max-height: calc(100vh - 200px);
 }
 
 .chat-focus-bottom {
-  display: inline-block;
   width: 100%;
 }
 
@@ -225,7 +288,7 @@ main {
 .chat-focus-bottom-left {
   display: inline-block;
   text-align: left;
-  background-color: #f3eabe;
+  background-color: rgb(254, 240, 186);
   margin: 1px;
   margin-left: 10px;
   border-radius: 10px;
@@ -254,26 +317,26 @@ main {
 }
 
 .chat-focus-type {
-  position: absolute;
-  bottom: 0px;
-  right: 0px;
-  margin: 10px;
-  width: 100%;
+  width: 97.5%;
+  text-align: center;
+  vertical-align: bottom;
+  align-self: center;
+  padding-right: 8px;
+  padding-top: 10px;
 }
 
 .chat-focus-type-input {
-  margin: auto;
-  margin-left: 24%;
+  width: 100%;
   font-size: 14px;
   border-radius: 10px;
-  border-width: 1px;
   text-indent: 8px;
   padding: 8px;
+  padding-right: 0px;
   border-style: solid;
   border-color: darkgrey;
   border-width: 0px;
-  width: 75%;
   background-color: #f2f2f2;
+  color: black;
 }
 
 .chat-focus-type-input::placeholder {
@@ -284,6 +347,12 @@ main {
 
 .horizontal {
   display: flex;
+}
+
+.horizontal-center {
+  display: flex;
+  margin: auto;
+  justify-content: center;
 }
 
 .footer {
@@ -308,7 +377,6 @@ main {
   padding: 10px;
   padding-top: 8px;
   padding-bottom: 2px;
-  visibility: hidden;
 }
 
 .toast-red {
@@ -323,12 +391,128 @@ main {
   padding: 10px;
   padding-top: 8px;
   padding-bottom: 2px;
-  animation: fadeOut 2s forwards;
+}
+
+.profile-left {
+  margin: 30px;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.profile-right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-top: 5px;
+}
+
+.friends {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-container {
+  display: flex;
+}
+
+.profile-friends-title {
+  font-size: 24px;
+  color: grey;
+  font-weight: bolder;
+  text-align: left;
+  margin-bottom: 5px;
+}
+
+.profile-friends-count {
+  margin: 5px;
+  margin-left: 1px;
+  margin-bottom: 15px;
+}
+
+.profile-property-title {
+  font-size: 14px;
+  color: darkgrey;
+  text-align: left;
+  margin: 5px;
+  margin-bottom: 2px;
+  margin-left: 1px;
+}
+
+.title {
+  margin: 0px;
+  margin-left: 0px;
+  padding: 0px;
+  font-size: 30px; 
+  font-weight: 525;
+}
+
+.title-img {
+  vertical-align: middle;
+  max-width: 50px;
+  max-height: 50px;
+  padding-bottom: 10px;
+}
+
+.question-title {
+  font-size: 20px;
+}
+
+.question-div {
+  width: 21.5vw;
+  text-align: left;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.info-footer {
+  margin: 0px;
+  background-color: rgb(185, 185, 185);
+  font-size: 13px;
+  width: 100%;
+  height: 25vh;
+}
+
+.home-div {
+  height: 100%;
+}
+
+footer {
+  margin: 0px;
+}
+
+nav {
+  margin: 10px; 
+  margin-left: 20px;
+}
+
+progress {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  height: 5px;
+  width: 100%;
+}
+
+progress::-webkit-progress-value {
+  background: #0e9ef1;
+}
+
+progress::-moz-progress-bar {
+  background: #0e9ef1;
+}
+
+progress::-webkit-progress-bar {
+  background: lightgrey;
+}
+
+h3 {
+  
 }
 
 h2 {
   color: grey;
-  margin-bottom: 0px;
+  margin: 10px;
 }
 
 h1 {

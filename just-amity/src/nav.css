@@ -5,36 +5,40 @@ h1 {
 .top {
   /*background-color: #BBE4FB;*/
   overflow:hidden;
+  display: flex;
+  flex-direction: row;
+  border-width: 0px;
+  border-style: solid;
+  border-color: lightgrey;
+  margin: 0px;
+  padding: 10px;
+  padding-left: 15px;
+  padding-right: 10px;
 }
 
 .top-child {
-  float: left;
+  vertical-align: middle;
 }
 
-.top-child-right {
+.top-child-title {
+  vertical-align: top;
+  font-size: 30px;
 }
 
 .button-div {
-  float: right;
   margin-top: 10px;
 }
 
 a {
-  margin: 14px;
-  color: #d7ba28;
-  font-size: 16px;
+  color: rgb(248, 199, 5);
   text-decoration: none;
-}
-
-a:hover {
-  color: lightgrey;
 }
 
 button {
   color: #4d4d4d;
-  background-color: #e7f5fe;
+  background-color: #ededed;
   border: 0px solid #e7f5fe;
-  border-radius: 0px;
+  border-radius: 5px;
   margin-top: 4px;
   margin-bottom: 4px;
   padding: 8px 12px;
@@ -42,6 +46,6 @@ button {
 }
 
 button:hover {
+  color: #5d5d5d;
   background: #cfecfc;
-  color: black;
 }
