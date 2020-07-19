@@ -30,6 +30,8 @@ import Select from 'react-select';
 
 var database = firebase.database();
 
+//Profile option that displays location
+//TODO: Should be changed to not show on profile
 const options = [
   { value: 'chocolate', label: 'Left part of US' },
   { value: 'strawberry', label: 'Right part of US' },
@@ -42,9 +44,6 @@ function App() {
     <div className="App">
       <TopNavBar />
     </div>
-//     <UserProvider>
-//   <Application />
-// <UserProvider />
   );
 }
 
@@ -79,17 +78,19 @@ class TopNavBar extends React.Component {
       }
     });
   }
-  
+
   logout = (event) => {
     firebase.auth().signOut();
     this.render()
   }
-  
+
   render() {
     return (<Router>
       <main>
         <nav class="top">
           <Link to="/"><p class="title">JustAmity<img class="title-img" src={logo2}/></p></Link>
+          <a class="top-child"><Link to="/about">About Us</Link></a>
+          <a class="top-child"><Link to="/contact">Contact</Link></a>
           {!this.state.signed && this.state.stateFetched &&
             <div class="profile-div"><Link to="/login"><button>Login</button></Link></div>
           }
@@ -115,7 +116,7 @@ class TopNavBar extends React.Component {
       </main>
   </Router>)
   }
-  
+
   componentDidMount() {
 
   }
@@ -128,6 +129,7 @@ class Home extends React.Component {
     return (
       <div class="home-div">
         <p class="slogan">Meet your next favorite friend.</p>
+        //TODO: Change Picture here
         <img class="home-img"src={peopleBg}/>
         <div class="horizontal-center">
           <div class="question-div">
@@ -142,12 +144,14 @@ class Home extends React.Component {
       </div>
     );
   }
-}  
+}
 
+//Where did the aboutpage go?
+//TODO: Add about page, with our pictures/names/etc
 class About extends React.Component {
   render() {
     return (
-      <p>Y{"o".repeat(10)}</p>
+      <p>We are a group of UC Berkeley students striving to lower visual biases in social media apps while fostering meaningful and safe platonic relationships for campus communities.</p>
     );
   }
 }
@@ -161,7 +165,7 @@ class Profile extends React.Component {
       friends: 0,
       match: null
     };
-    
+
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         var user = firebase.auth().currentUser;
@@ -208,7 +212,7 @@ class Profile extends React.Component {
       }
     });
   }
-  
+
   match = () => {
     database.ref('matches').once('value').then((snapshot) => {
       var potentialFriends = snapshot.val();
@@ -253,7 +257,7 @@ class Profile extends React.Component {
       }
     });
   }
-  
+
   handleSelect = (e) => {
     console.log(e);
     var locationRef = firebase.database().ref('profiles/' + this.state.user.uid);
@@ -265,11 +269,10 @@ class Profile extends React.Component {
         location: e.label
     });
   }
-  
+
   render() {
     if (firebase.auth().currentUser) {
       return (
-        //<p>Y{"o".repeat(10)}</p>
         <div>
           <div class="profile-container">
             <div class="profile-left">
@@ -295,7 +298,7 @@ class Profile extends React.Component {
               <div class="friends">
                 <p class="profile-friends-title">Friends</p>
                 <p class="profile-friends-count">You currently have {this.state.friends} friend{this.state.friends != 1 && 's'}.</p>
-                <progress value="32" max="100"> 32% </progress> 
+                <progress value="32" max="100"> 32% </progress>
                 <button onClick={this.match}>Make a friend!!</button>
               </div>
               <div>
@@ -320,19 +323,18 @@ class Profile extends React.Component {
       );
     }
     return (
-      //<p>Y{"o".repeat(10)}</p>
       <p>No user signed in.</p>
     );
   }
-  
+
   componentDidMount() {
-    
+
   }
-}  
+}
 
 class Messages extends React.Component {
   colors = true;
-  
+
   constructor() {
     super();
     this.state = {
@@ -341,6 +343,7 @@ class Messages extends React.Component {
     };
     var dt = new Date();
     console.log(dt);
+    //TODO: Get rid of random users
     var randomColor = (function lol(m, s, c) {
                     return s[m.floor(m.random() * s.length)] +
                         (c && lol(m, s, c - 1));
@@ -381,14 +384,14 @@ class Messages extends React.Component {
         });
         console.log(snapshot.val());
       });
-      
-        
-      } else {
 
+
+      } else {
+        //elsewhat?
       }
     });
   }
-  
+
   renderChatListItem = (contact) => {
     var lastMessage = this.state.user.contacts[contact].messages[Object.keys(this.state.user.contacts[contact].messages).length - 1];
     var unread = this.state.user.contacts[contact].unread;
@@ -400,22 +403,23 @@ class Messages extends React.Component {
       </div>
     </div>);
   }
-  
+
+//get rid of this
   randomPhrase= () => {
     var song = Array("Hey whats up", "Haha thats really funny!", "That sounds really fun!", "Tfw when you are a cat", "Hello!", "Do you want to go get boba", "Yoooo uwu", "LOL", "Yes!", "Sorry I am busy. :(", "How are you doing?", "That's really cool!", "What do you think?", "LOL im in");
     return song[Math.floor(Math.random() * song.length)];
   }
-  
+
   randomName= () => {
     var song = Array("John", "Jack", "Emma", "James", "Sarah", "Ronny", "Alex", "Jocelyn", "Bode", "Boser", "Gireeja", "Eva", "Evelyn", "Tom", "Hanna", "Jenny", "Kaley", "Helen", "Helena", "Amy", "Athena", "Bill", "Melinda");
     return song[Math.floor(Math.random() * song.length)];
   }
-  
+
   randomColor = (function lol(m, s, c) {
                   return s[m.floor(m.random() * s.length)] +
                       (c && lol(m, s, c - 1));
               });
-  
+
   renderFakeChatListItem = () => {
     var lastMessage = this.randomPhrase();
     var name = this.randomName();
@@ -429,11 +433,11 @@ class Messages extends React.Component {
       </div>
     </div>);
   }
-  
+
   contactObj = (id) => {
     return firebase.database().ref('/users/' + id).once('value');
   }
-  
+
   renderChatList = () => {
     const chats = [];
     for (var contact in this.state.user.contacts) {
@@ -445,7 +449,7 @@ class Messages extends React.Component {
     }
     return chats;
   }
-  
+
   writeUserMessage = (contact, message) => {
     var messageRef = firebase.database().ref('users/' + this.state.user.uid + '/contacts/' + contact + '/messages/' + this.state.user.contacts[contact].messages.length);
     messageRef.set({
@@ -462,13 +466,13 @@ class Messages extends React.Component {
         unread: true
     });
   }
-  
+
   updateInputValue(evt) {
     this.setState({
       inputValue: evt.target.value
     });
   }
-  
+
   onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>): void => {
       if (event.key === 'Enter') {
         if (this.state.inputValue) {
@@ -481,7 +485,7 @@ class Messages extends React.Component {
         }
       }
     }
-  
+
   readMessage = (contact) => {
     if (contact) {
       var unreadRef = firebase.database().ref('users/' + this.state.user.uid + '/contacts/' + this.state.activeChat);
@@ -490,7 +494,7 @@ class Messages extends React.Component {
       });
     }
   }
-  
+
   isIterable(obj) {
   // checks for null and undefined
     if (obj == null) {
@@ -498,7 +502,7 @@ class Messages extends React.Component {
     }
     return typeof obj[Symbol.iterator] === 'function';
   }
-  
+
   renderChatFocus = (contact) => {
     const messages = [];
     console.log(this.state.contactRef);
@@ -538,9 +542,9 @@ class Messages extends React.Component {
           <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)} onKeyDown={this.onKeyDown} placeholder="Type a message" class="chat-focus-type-input"/>
         </div>
       </div>);
-  
+
   }
-  
+
   render() {
     return (
       <div class="horizontal">
@@ -551,30 +555,37 @@ class Messages extends React.Component {
       </div>
     );
   }
-  
+
   scrollToBottom() {
     this.el.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'start' });
   }
-  
+
+//What does this function do?
   componentDidMount() {
-    
+
   }
-  
+
   componentDidUpdate() {
     if (this.el) {
       this.scrollToBottom();
     }
   }
-}  
+}
 
+//TODO: Update contact page with Social Media + Email contact form
 class Contact extends React.Component {
   render() {
     return (
-      <a className="App-link" href="https://www.linkedin.com/in/jasmine-bae" target="_blank" rel="noopener noreferrer">Check out our LinkedIn!</a>
+      <a className="App-link" href="https://www.facebook.com/justamity" target="_blank" rel="noopener noreferrer">Facebook</a>
+      <a className="App-link" href="https://twitter.com/just_amity" target="_blank" rel="noopener noreferrer">Twitter</a>
+      <a className="App-link" href="https://www.instagram.com/just_amity/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      //add contact form here
     );
   }
-}  
+}
 
+
+/// Summary: Login Page
 class Login extends React.Component {
   constructor() {
     super();
@@ -582,7 +593,7 @@ class Login extends React.Component {
       authenticated: false
     };
   }
-  
+
   render() {
     return (
       <div>
@@ -591,7 +602,7 @@ class Login extends React.Component {
       </div>
     );
   }
-  
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -605,12 +616,14 @@ class Login extends React.Component {
       }
     });
   }
-}  
+}
 
+
+/// Summary: Logout Page
 class Logout extends React.Component {
   render() {
     return (
       <p>You have been logged out.</p>
     );
   }
-}  
+}
