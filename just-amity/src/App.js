@@ -89,15 +89,11 @@ class TopNavBar extends React.Component {
     return (<Router>
       <main>
         <nav class="top">
-<<<<<<< Updated upstream
-          <Link to="/"><p class="title">JustAmity<img class="title-img" src={logo2}/></p></Link>
-=======
           <Link to="/"><p class="title"><img class="title-img" src={logo2}/>JustAmity</p></Link>
           <div class="links-div">
             <a class="links-div-link"><Link to="/about">About Us</Link></a>
             <a class="links-div-link"><Link to="/contact">Contact</Link></a>
           </div>
->>>>>>> Stashed changes
           {!this.state.signed && this.state.stateFetched &&
             <div class="profile-div"><Link to="/login"><button>Login</button></Link></div>
           }
@@ -135,18 +131,6 @@ class Home extends React.Component {
   render() {
     return (
       <div class="home-div">
-<<<<<<< Updated upstream
-        <p class="slogan">Meet your next favorite friend.</p>
-        <img class="home-img"src={peopleBg}/>
-        <div class="horizontal-center">
-          <div class="question-div">
-            <p class="question-title">Deciding who to friend next?</p>
-            <p class="question-answer">You’re in the right place. Tell us what topics or interests you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations.</p>
-          </div>
-          <div class="question-div">
-            <p class="question-title">What are your friends up to?</p>
-            <p class="question-answer">Chances are your friends are discussing their favorite (and least favorite) things on JustAmity.</p>
-=======
         <div class="home-bg">
           <div class="home-text">
             <p class="slogan">Meet your next favorite friend.</p>
@@ -161,7 +145,6 @@ class Home extends React.Component {
                 <p class="question-answer">Chances are your friends are discussing their favorite (and least favorite) things on JustAmity.</p>
               </div>
             </div>
->>>>>>> Stashed changes
           </div>
         </div>
         <footer>
@@ -196,9 +179,6 @@ class Home extends React.Component {
 class About extends React.Component {
   render() {
     return (
-<<<<<<< Updated upstream
-      <p>Y{"o".repeat(10)}</p>
-=======
       <div>
         <ul>
           <li>
@@ -227,7 +207,6 @@ class About extends React.Component {
           </li>
         </ul>
       </div>
->>>>>>> Stashed changes
     );
   }
 }
@@ -646,14 +625,9 @@ class Messages extends React.Component {
 class Contact extends React.Component {
   render() {
     return (
-<<<<<<< Updated upstream
-      <a className="App-link" href="https://www.linkedin.com/in/jasmine-bae" target="_blank" rel="noopener noreferrer">Check out our LinkedIn!</a>
-=======
       <div>
         Please do not contact us.
       </div>
-      //add contact form here
->>>>>>> Stashed changes
     );
   }
 }  
