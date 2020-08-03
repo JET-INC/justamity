@@ -88,9 +88,11 @@ class TopNavBar extends React.Component {
     return (<Router>
       <main>
         <nav class="top">
-          <Link to="/"><p class="title">JustAmity<img class="title-img" src={logo2}/></p></Link>
-          <a class="top-child"><Link to="/about">About Us</Link></a>
-          <a class="top-child"><Link to="/contact">Contact</Link></a>
+          <Link to="/"><p class="title"><img class="title-img" src={logo2}/>JustAmity</p></Link>
+          <div class="links-div">
+            <a class="links-div-link"><Link to="/about">About Us</Link></a>
+            <a class="links-div-link"><Link to="/contact">Contact</Link></a>
+          </div>
           {!this.state.signed && this.state.stateFetched &&
             <div class="profile-div"><Link to="/login"><button>Login</button></Link></div>
           }
@@ -128,17 +130,20 @@ class Home extends React.Component {
   render() {
     return (
       <div class="home-div">
-        <p class="slogan">Meet your next favorite friend.</p>
-        //TODO: Change Picture here
-        <img class="home-img"src={peopleBg}/>
-        <div class="horizontal-center">
-          <div class="question-div">
-            <p class="question-title">Deciding who to friend next?</p>
-            <p class="question-answer">You’re in the right place. Tell us what topics or interests you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations.</p>
-          </div>
-          <div class="question-div">
-            <p class="question-title">What are your friends up to?</p>
-            <p class="question-answer">Chances are your friends are discussing their favorite (and least favorite) things on JustAmity.</p>
+        <div class="home-bg">
+          <div class="home-text">
+            <p class="slogan">Meet your next favorite friend.</p>
+            <img class="home-img"/>
+            <div class="horizontal-center">
+              <div class="question-div">
+                <p class="question-title">Deciding who to friend next?</p>
+                <p class="question-answer">You’re in the right place. Tell us what topics or interests you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations.</p>
+              </div>
+              <div class="question-div">
+                <p class="question-title">What are your friends up to?</p>
+                <p class="question-answer">Chances are your friends are discussing their favorite (and least favorite) things on JustAmity.</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -151,7 +156,34 @@ class Home extends React.Component {
 class About extends React.Component {
   render() {
     return (
-      <p>We are a group of UC Berkeley students striving to lower visual biases in social media apps while fostering meaningful and safe platonic relationships for campus communities.</p>
+      <div>
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/justamity">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <span> - Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com/just_amity">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+              <span> - Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a href="we have no google">
+              <i class="fa fa-google-plus" aria-hidden="true"></i>
+              <span> - Google</span>
+            </a>
+          </li>
+          <li>
+            <a href="href=https://www.instagram.com/just_amity">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+              <span> - Instagram</span>
+            </a>
+          </li>
+        </ul>
+      </div>
     );
   }
 }
@@ -576,9 +608,9 @@ class Messages extends React.Component {
 class Contact extends React.Component {
   render() {
     return (
-      <a className="App-link" href="https://www.facebook.com/justamity" target="_blank" rel="noopener noreferrer">Facebook</a>
-      <a className="App-link" href="https://twitter.com/just_amity" target="_blank" rel="noopener noreferrer">Twitter</a>
-      <a className="App-link" href="https://www.instagram.com/just_amity/" target="_blank" rel="noopener noreferrer">Instagram</a>
+      <div>
+        Please do not contact us.
+      </div>
       //add contact form here
     );
   }
