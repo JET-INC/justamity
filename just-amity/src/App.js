@@ -9,7 +9,7 @@ import ProfilePage from "./Components/ProfilePage";
 import { UserContext } from "./providers/UserProvider";
 // import React from 'react';
 import logo from './SunAndCloud.png';
-import logo2 from './sc2.png';
+import logo2 from './logo3.svg';
 import mailSymbol from './mail.png'
 import peopleBg from './people-happy.jpg'
 import './App.css';
@@ -89,7 +89,15 @@ class TopNavBar extends React.Component {
     return (<Router>
       <main>
         <nav class="top">
+<<<<<<< Updated upstream
           <Link to="/"><p class="title">JustAmity<img class="title-img" src={logo2}/></p></Link>
+=======
+          <Link to="/"><p class="title"><img class="title-img" src={logo2}/>JustAmity</p></Link>
+          <div class="links-div">
+            <a class="links-div-link"><Link to="/about">About Us</Link></a>
+            <a class="links-div-link"><Link to="/contact">Contact</Link></a>
+          </div>
+>>>>>>> Stashed changes
           {!this.state.signed && this.state.stateFetched &&
             <div class="profile-div"><Link to="/login"><button>Login</button></Link></div>
           }
@@ -127,6 +135,7 @@ class Home extends React.Component {
   render() {
     return (
       <div class="home-div">
+<<<<<<< Updated upstream
         <p class="slogan">Meet your next favorite friend.</p>
         <img class="home-img"src={peopleBg}/>
         <div class="horizontal-center">
@@ -137,8 +146,48 @@ class Home extends React.Component {
           <div class="question-div">
             <p class="question-title">What are your friends up to?</p>
             <p class="question-answer">Chances are your friends are discussing their favorite (and least favorite) things on JustAmity.</p>
+=======
+        <div class="home-bg">
+          <div class="home-text">
+            <p class="slogan">Meet your next favorite friend.</p>
+            <img class="home-img"/>
+            <div class="horizontal-center">
+              <div class="question-div">
+                <p class="question-title">Deciding who to friend next?</p>
+                <p class="question-answer">You’re in the right place. Tell us what topics or interests you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations.</p>
+              </div>
+              <div class="question-div">
+                <p class="question-title">What are your friends up to?</p>
+                <p class="question-answer">Chances are your friends are discussing their favorite (and least favorite) things on JustAmity.</p>
+              </div>
+            </div>
+>>>>>>> Stashed changes
           </div>
         </div>
+        <footer>
+          <div class="footer-content">
+            <div class="footer-column">
+              <p class="footer-column-title">Company</p>
+              <p class="footer-column-links">About us</p>
+              <p class="footer-column-links">Careers</p>
+              <p class="footer-column-links">Terms</p>
+              <p class="footer-column-links">Privacy</p>
+
+
+            </div>
+            <div class="footer-column">
+              <p class="footer-column-title">Work with us</p>
+              <p class="footer-column-links">Friends</p>
+              <p class="footer-column-links">Advertise</p>
+
+            </div>
+            <div class="footer-column">
+              <p class="footer-column-title">Donate</p>
+              <p class="footer-column-links">$10</p>
+              <p class="footer-column-links">$100</p>
+            </div>
+          </div>
+        </footer>
       </div>
     );
   }
@@ -147,7 +196,38 @@ class Home extends React.Component {
 class About extends React.Component {
   render() {
     return (
+<<<<<<< Updated upstream
       <p>Y{"o".repeat(10)}</p>
+=======
+      <div>
+        <ul>
+          <li>
+            <a href="https://www.facebook.com/justamity">
+              <i class="fa fa-facebook" aria-hidden="true"></i>
+              <span> - Facebook</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.twitter.com/just_amity">
+              <i class="fa fa-twitter" aria-hidden="true"></i>
+              <span> - Twitter</span>
+            </a>
+          </li>
+          <li>
+            <a href="we have no google">
+              <i class="fa fa-google-plus" aria-hidden="true"></i>
+              <span> - Google</span>
+            </a>
+          </li>
+          <li>
+            <a href="href=https://www.instagram.com/just_amity">
+              <i class="fa fa-instagram" aria-hidden="true"></i>
+              <span> - Instagram</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+>>>>>>> Stashed changes
     );
   }
 }
@@ -439,10 +519,6 @@ class Messages extends React.Component {
     for (var contact in this.state.user.contacts) {
       chats.push(this.renderChatListItem(contact));
     }
-    for (var i = 0; i < 10; i++) {
-      chats.push(this.renderFakeChatListItem());
-
-    }
     return chats;
   }
   
@@ -570,7 +646,14 @@ class Messages extends React.Component {
 class Contact extends React.Component {
   render() {
     return (
+<<<<<<< Updated upstream
       <a className="App-link" href="https://www.linkedin.com/in/jasmine-bae" target="_blank" rel="noopener noreferrer">Check out our LinkedIn!</a>
+=======
+      <div>
+        Please do not contact us.
+      </div>
+      //add contact form here
+>>>>>>> Stashed changes
     );
   }
 }  

@@ -11,9 +11,27 @@ h1 {
   border-style: solid;
   border-color: lightgrey;
   margin: 0px;
+  padding: 0px;
+  padding-left: 15px;
+  padding-right: 0px;
+  background-color: white;
+}
+
+.top-scroll {
+  /*background-color: #BBE4FB;*/
+  overflow:hidden;
+  display: flex;
+  flex-direction: row;
+  border-width: 0px;
+  border-style: solid;
+  border-color: lightgrey;
+  margin: 0px;
   padding: 10px;
   padding-left: 15px;
   padding-right: 10px;
+  position: fixed;
+  top: 0;
+  width: 98%;
 }
 
 .top-child {
@@ -29,19 +47,29 @@ h1 {
   margin-top: 10px;
 }
 
-a {
+a.primary {
   color: rgb(248, 199, 5);
   text-decoration: none;
 }
 
+a {
+  margin: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+  color: #202020;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
 button {
-  color: #4d4d4d;
-  background-color: #ededed;
+  background-color: rgb(248, 199, 5);
+  color: white;
+  font-weight: bold;
   border: 0px solid #e7f5fe;
-  border-radius: 5px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  padding: 8px 12px;
+  height: 65px;
+  padding: 0px 15px;
+  margin: 0px;
   font-size: 16px;
 }
 
