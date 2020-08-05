@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway&display=swap');
+
 #root {
   height: 100%;
 }
@@ -360,7 +362,7 @@ a.header-link {
   margin: 1px;
   margin-right: 10px;
   border-radius: 13px;
-  
+
 }
 
 .chat-focus-bottom-message-left {

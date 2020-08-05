@@ -9,7 +9,7 @@ import ProfilePage from "./Components/ProfilePage";
 import { UserContext } from "./providers/UserProvider";
 import logo from './SunAndCloud.png';
 import logo2 from './amlogo.png';
-import mailSymbol from './mail.png'
+import mailSymbol from './mail2.png'
 import 'semantic-ui-css/semantic.min.css'
 import './App.css';
 import './firebase.js';
@@ -162,7 +162,7 @@ class Home extends React.Component {
       }
     });
   }
-  
+
   render() {
     return (
       <div class="home-div">
@@ -355,7 +355,7 @@ class Profile extends React.Component {
         location: e.label
     });
   }
-  
+
   tags = (lst) => {
     var ret = [];
     for (var x in lst) {
@@ -363,12 +363,12 @@ class Profile extends React.Component {
         <Label style={{width: "auto"}}>
           <Icon name="user" />
           {lst[x]}
-        </Label>                
+        </Label>
       )
     }
     return ret
   }
-  
+
   render() {
     if (firebase.auth().currentUser) {
       return (
@@ -645,7 +645,7 @@ class Messages extends React.Component {
         </div>
       </div>);
   }
-  
+
   renderSuggestions = () => {
     return (
       <div class="chat-suggestions-div">
