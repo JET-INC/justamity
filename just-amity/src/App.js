@@ -8,8 +8,9 @@ import UserProvider from "./providers/UserProvider";
 import ProfilePage from "./Components/ProfilePage";
 import { UserContext } from "./providers/UserProvider";
 import logo from './SunAndCloud.png';
-import logo2 from './logo3.svg';
+import logo2 from './amlogo.png';
 import mailSymbol from './mail.png'
+import 'semantic-ui-css/semantic.min.css'
 import './App.css';
 import './firebase.js';
 import { createBrowserHistory } from 'history';
@@ -25,6 +26,13 @@ import { useHistory } from "react-router-dom";
 import { signInWithGoogle } from "./firebase";
 import { Redirect } from 'react-router-dom';
 import Select from 'react-select';
+import { Button } from 'semantic-ui-react'
+import { Progress } from 'semantic-ui-react'
+import { Icon } from 'semantic-ui-react'
+import { Header } from 'semantic-ui-react'
+import { Label } from 'semantic-ui-react'
+
+
 
 var database = firebase.database();
 
@@ -84,14 +92,17 @@ class TopNavBar extends React.Component {
     return (<Router>
       <main>
         <nav class="top-scroll">
-          <Link to="/"><p class="title"><img class="title-img" src={logo2}/>Amity</p></Link>
+          <Link to="/"><img class="title-img" src={logo2}/></Link>
           <div class="links-div">
-            <a class="links-div-link"><Link to="/about">About Us</Link></a>
-            <a class="links-div-link"><Link to="/contact">Contact</Link></a>
+            <div class="links-div-link-div">
+              <a class="links-div-link"><Link to="/about">About Us</Link></a>
+              <a class="links-div-link"><Link to="/contact">Contact</Link></a>
+            </div>
+            {!this.state.signed && this.state.stateFetched &&
+              <Button><Link to="/login">Login</Link></Button>
+            }
           </div>
-          {!this.state.signed && this.state.stateFetched &&
-            <div class="links-div-link"><Link to="/login">Login</Link></div>
-          }
+
           {this.state.signed &&
             <div class="profile-div">
               <Link to="/messages"><img src={mailSymbol} class="symbol"/><div class="row"/></Link>
@@ -123,17 +134,47 @@ class TopNavBar extends React.Component {
 }
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      signed: false,
+      photo: null
+    };
+    if (firebase.auth().currentUser) {
+      this.state = {
+        signed: true
+      };
+    }
+    document.title = "JustAmity";
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        this.setState({
+          signed: true,
+          photo: firebase.auth().currentUser.photoURL,
+          stateFetched: true
+        });
+      } else {
+        this.setState({
+          signed: false,
+          photo: null,
+          stateFetched: true
+        });
+      }
+    });
+  }
+  
   render() {
     return (
       <div class="home-div">
+      {this.state.signed && <Redirect to='/login'  />}
         <div class="home-bg">
           <div class="home-text">
             <p class="slogan">Friendship starts here.</p>
             <p class ="slogan-under">Sign up to meet your new friend!</p>
             <img class="home-img"/>
             <div class="horizontal-center">
-                <div class="home-buttons"><Link to="/login">Sign Up</Link></div>
-                <div class="home-buttons"><Link to="/login">Login</Link></div>
+                <div class="home-buttons" onClick={<Redirect to="/login"/>}>Sign Up</div>
+                <div class="home-buttons" onClick={<Redirect to="/login"/>}>Login</div>
             </div>
           </div>
         </div>
@@ -314,7 +355,20 @@ class Profile extends React.Component {
         location: e.label
     });
   }
-
+  
+  tags = (lst) => {
+    var ret = [];
+    for (var x in lst) {
+      ret.push(
+        <Label style={{width: "auto"}}>
+          <Icon name="user" />
+          {lst[x]}
+        </Label>                
+      )
+    }
+    return ret
+  }
+  
   render() {
     if (firebase.auth().currentUser) {
       return (
@@ -322,18 +376,18 @@ class Profile extends React.Component {
           <div class="profile-container">
             <div class="profile-left">
               <img class="profile-img" src={firebase.auth().currentUser.photoURL}/>
-              <h2>{firebase.auth().currentUser.displayName}</h2>
-              <Link to="/logout"><button onClick={f => firebase.auth().signOut()}>Logout</button></Link>
+              <Header as="h2">{firebase.auth().currentUser.displayName}</Header>
+              <Link to="/logout"><Button color='yellow' onClick={f => firebase.auth().signOut()}>Logout</Button></Link>
             </div>
             {this.state.match && this.state.match === "yes" &&
-              (<div class="footer" ref="toast-friend">
+              (<div class="footer-toast" ref="toast-friend">
                 <div class="toast">
                   🦄 You made a friend! 🦄
                 </div>
               </div>)
             }
             {this.state.match && this.state.match === "no" &&
-              (<div class="footer" ref="toast-no-friend">
+              (<div class="footer-toast" ref="toast-no-friend">
                 <div class="toast-red">
                   😥 No friends found. 😥
                 </div>
@@ -343,8 +397,8 @@ class Profile extends React.Component {
               <div class="friends">
                 <p class="profile-friends-title">Friends</p>
                 <p class="profile-friends-count">You currently have {this.state.friends} friend{this.state.friends != 1 && 's'}.</p>
-                <progress value="32" max="100"> 32% </progress>
-                <button onClick={this.match}>Make a friend!!</button>
+                <Progress percent={33} style={{margin: "10px 0px"}}/>
+                <Button color='yellow' onClick={this.match} style={{width: "150px"}}><Icon name='user' />Make friend</Button>
               </div>
               <div>
                 <p class="profile-friends-title">Profile</p>
@@ -361,6 +415,14 @@ class Profile extends React.Component {
                   options={options}
                   defaultValue={{ label: "None", value: 1 }}
                 />}
+              </div>
+            </div>
+            <div class="profile-right">
+              <div class="friends">
+                <p class="profile-friends-title">Interests</p>
+                <div class="horizontal-wrap">
+                  {this.tags(["Bananas", "Rocket League", "Cats", "Phones", "aslfhlfhksjdhhsldg"])}
+                </div>
               </div>
             </div>
           </div>
@@ -582,16 +644,27 @@ class Messages extends React.Component {
           <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)} onKeyDown={this.onKeyDown} placeholder="Type a message" class="chat-focus-type-input"/>
         </div>
       </div>);
-
+  }
+  
+  renderSuggestions = () => {
+    return (
+      <div class="chat-suggestions-div">
+        <img class="chat-suggestion-img" src="http://www.topdesignmag.com/wp-content/uploads/2012/05/5.-vintage-newspaper-ad.jpg"></img>
+        <img class="chat-suggestion-img" src="https://i.pinimg.com/originals/0b/5f/67/0b5f6794c6c32f7c94cffd8f68d1a325.jpg"></img>
+        <img class="chat-suggestion-img" src="https://c2.staticflickr.com/2/1593/25044909010_90d6a29099_b.jpg"></img>
+      </div>
+    )
   }
 
   render() {
+    document.body.style.overflow = 'hidden';
     return (
       <div class="horizontal">
         <div class="chat-list">
           {this.state.authenticated && this.renderChatList()}
         </div>
         {this.state.authenticated && this.renderChatFocus(this.state.activeChat)}
+        {this.state.authenticated && this.renderSuggestions()}
       </div>
     );
   }

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Link } from "@reach/router";
 import { signInWithGoogle } from "../firebase";
 import { auth } from "../firebase";
-
+import { Button } from 'semantic-ui-react'
 
 const SignIn = () => {
 
@@ -36,14 +36,13 @@ const SignIn = () => {
       <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
         {error !== null && <div className = "py-4 bg-red-600 w-full text-white text-center mb-3">{error}</div>}
         <br/>
-        <button
-          className="bg-red-500 hover:bg-red-600 w-full py-2 text-white"
+        <Button
           onClick={() => {
             signInWithGoogle();
           }}
         >
           Sign in with Google
-        </button>
+        </Button>
         <p className="text-center my-3">
           Log in with your @berkeley.edu email to continue. 
         </p>
