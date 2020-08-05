@@ -1,25 +1,29 @@
 {
   "files": {
-    "main.css": "/justamity/static/css/main.f8ef9499.chunk.css",
-    "main.js": "/justamity/static/js/main.824fd7c5.chunk.js",
-    "main.js.map": "/justamity/static/js/main.824fd7c5.chunk.js.map",
+    "main.css": "/justamity/static/css/main.9fe5fdca.chunk.css",
+    "main.js": "/justamity/static/js/main.523357ae.chunk.js",
+    "main.js.map": "/justamity/static/js/main.523357ae.chunk.js.map",
     "runtime-main.js": "/justamity/static/js/runtime-main.c2860ad6.js",
     "runtime-main.js.map": "/justamity/static/js/runtime-main.c2860ad6.js.map",
-    "static/js/2.fe25dfc3.chunk.js": "/justamity/static/js/2.fe25dfc3.chunk.js",
-    "static/js/2.fe25dfc3.chunk.js.map": "/justamity/static/js/2.fe25dfc3.chunk.js.map",
+    "static/css/2.ced63dfd.chunk.css": "/justamity/static/css/2.ced63dfd.chunk.css",
+    "static/js/2.6b57ea65.chunk.js": "/justamity/static/js/2.6b57ea65.chunk.js",
+    "static/js/2.6b57ea65.chunk.js.map": "/justamity/static/js/2.6b57ea65.chunk.js.map",
     "index.html": "/justamity/index.html",
-    "precache-manifest.446fd5302578a8ce83b68bbd6812fd7e.js": "/justamity/precache-manifest.446fd5302578a8ce83b68bbd6812fd7e.js",
+    "precache-manifest.a7d1aa1803df18ba2f654023b1a379f5.js": "/justamity/precache-manifest.a7d1aa1803df18ba2f654023b1a379f5.js",
     "service-worker.js": "/justamity/service-worker.js",
-    "static/css/main.f8ef9499.chunk.css.map": "/justamity/static/css/main.f8ef9499.chunk.css.map",
-    "static/js/2.fe25dfc3.chunk.js.LICENSE.txt": "/justamity/static/js/2.fe25dfc3.chunk.js.LICENSE.txt",
+    "static/css/2.ced63dfd.chunk.css.map": "/justamity/static/css/2.ced63dfd.chunk.css.map",
+    "static/css/main.9fe5fdca.chunk.css.map": "/justamity/static/css/main.9fe5fdca.chunk.css.map",
+    "static/js/2.6b57ea65.chunk.js.LICENSE.txt": "/justamity/static/js/2.6b57ea65.chunk.js.LICENSE.txt",
+    "static/media/amlogo.png": "/justamity/static/media/amlogo.e4727183.png",
+    "static/media/semantic.min.css": "/justamity/static/media/outline-icons.ef60a4f6.woff",
     "static/media/App.css": "/justamity/static/media/homeBackground.3737bdfc.png",
-    "static/media/logo3.svg": "/justamity/static/media/logo3.0addf8c8.svg",
     "static/media/mail.png": "/justamity/static/media/mail.dce4df7f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.c2860ad6.js",
-    "static/js/2.fe25dfc3.chunk.js",
-    "static/css/main.f8ef9499.chunk.css",
-    "static/js/main.824fd7c5.chunk.js"
+    "static/css/2.ced63dfd.chunk.css",
+    "static/js/2.6b57ea65.chunk.js",
+    "static/css/main.9fe5fdca.chunk.css",
+    "static/js/main.523357ae.chunk.js"
   ]
 }
