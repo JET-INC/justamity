@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ff1a05f3776430852fc264d6362b132f",
+    "revision": "1728822ad5908a7ace15a8b62f6dab83",
     "url": "/justamity/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/justamity/static/css/2.ced63dfd.chunk.css"
   },
   {
-    "revision": "5db311eb8bce31213526",
-    "url": "/justamity/static/css/main.5c32973c.chunk.css"
+    "revision": "13aea0a85a209e7f3476",
+    "url": "/justamity/static/css/main.1d95d2b0.chunk.css"
   },
   {
     "revision": "dc74907142e21b357544",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/justamity/static/js/2.6b57ea65.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "5db311eb8bce31213526",
-    "url": "/justamity/static/js/main.1d3643ea.chunk.js"
+    "revision": "13aea0a85a209e7f3476",
+    "url": "/justamity/static/js/main.ed7334ed.chunk.js"
   },
   {
     "revision": "5526a3ba34e21941b317",
