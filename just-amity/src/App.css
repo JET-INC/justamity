@@ -6,12 +6,24 @@ html {
   background-color: white;
 }
 
+<html>
+<head>
+<link rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+.css-selector {
+font-family: 'Raleway', serif;
+}
+
 body {
   height: 100%;
   overflow-x: hidden;
-  margin-left: 75px;
-  margin-right: 75px;
+  margin-top: 60px;
 }
+
+</style>
+</head>
+</html>
 
 header {
   height: 100%;
@@ -20,6 +32,11 @@ header {
 
 main {
   height: 100%;
+}
+
+
+.css-selector {
+font-family: 'Raleway', serif;
 }
 
 .App {
@@ -32,12 +49,6 @@ main {
   pointer-events: none;
 }
 
-/* @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-} */
-
 .App-header {
   background-color: white;
   height: 100%;
@@ -46,6 +57,7 @@ main {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  font-style: black;
   color: white;
 }
 
@@ -62,14 +74,33 @@ main {
 .links-div-link {
   margin-left: 20px;
   margin-right: 20px;
+  font-size: 20px;
+  padding: 20px 15px;
+  transition-duration: .2s;
 }
+
+.links-div-link:hover {
+  background-color: #C7E1E0;
+  color: white;
+  padding: 20px 16px;
+  border-radius: 4px;
+}
+
 
 .slogan {
   font-size: 40px;
   font-weight: bold;
   color: #303030;
   margin: 20px;
-  margin-top: 0px;
+  margin-top: 20px;
+  margin-bottom: 25px;
+}
+
+.slogan-under {
+  margin-left: 20px;
+  margin-right: 20px;
+  font-style: italic;
+  font-size: 20px;
 }
 
 .home-img {
@@ -115,6 +146,28 @@ main {
   margin-right: 0px;
   margin-bottom: 0px;
   padding: 0px;
+}
+
+.home-buttons {
+  margin-left: 25px;
+  margin-right: 25px;
+  text-align: left;
+  margin-bottom: 30px;
+  border-radius: 8px;
+  transition-duration: 0.2s;
+  background-color: white;
+  color: #7FBBB9;
+  padding: 12px 28px;
+  border: 3px solid #7FBBB9;
+  width: 20%;
+  text-align: center;
+  font-size: 20px;
+}
+
+.home-buttons:hover {
+  background-color: #C7E1E0;
+  border: 2px solid #C7E1E0;
+  color: white;
 }
 
 .grey {
@@ -459,8 +512,8 @@ main {
   margin: auto;
   margin-left: 0px;
   padding: 0px;
-  font-size: 30px; 
-  font-weight: 525;
+  font-size: 30px;
+  font-style: bold;
   color: rgb(248, 199, 5);
 }
 
@@ -496,13 +549,14 @@ main {
   height: 90vh;
 }
 
+/* Summary: Background to the home screen */
 .home-bg {
-  background-image: url("bggggg.png");
-  background-position: center center;
-  background-size: cover;
+  padding-top: 50px;
+  background-image: url("homeBackground.png");
+  background-size: 100%;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center; 
+  background-position: cover;
   height: 100%;
   display: flex;
   align-items: center;
@@ -582,7 +636,7 @@ ul li a {
   text-align:left;
   padding-left: 20px;
   transform: rotate(-30deg) skew(25deg) translate(0,0);
-  transition:.5s;
+  transition: .5s;
   box-shadow: -20px 20px 10px rgba(0,0,0,.5);
 }
 ul li a:before {
@@ -668,7 +722,7 @@ footer {
 }
 
 nav {
-  margin: 10px; 
+  margin: 10px;
   margin-left: 20px;
 }
 
@@ -694,7 +748,7 @@ progress::-webkit-progress-bar {
 }
 
 h3 {
-  
+
 }
 
 h2 {
@@ -709,13 +763,3 @@ h1 {
 p {
   word-wrap: break-word;
 }
-
-/* @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} 
-*/

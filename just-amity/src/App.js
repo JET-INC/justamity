@@ -7,11 +7,9 @@ import Application from "./Components/Application";
 import UserProvider from "./providers/UserProvider";
 import ProfilePage from "./Components/ProfilePage";
 import { UserContext } from "./providers/UserProvider";
-// import React from 'react';
 import logo from './SunAndCloud.png';
 import logo2 from './logo3.svg';
 import mailSymbol from './mail.png'
-import peopleBg from './people-happy.jpg'
 import './App.css';
 import './firebase.js';
 import { createBrowserHistory } from 'history';
@@ -42,9 +40,6 @@ function App() {
     <div className="App">
       <TopNavBar />
     </div>
-//     <UserProvider>
-//   <Application />
-// <UserProvider />
   );
 }
 
@@ -79,23 +74,23 @@ class TopNavBar extends React.Component {
       }
     });
   }
-  
+
   logout = (event) => {
     firebase.auth().signOut();
     this.render()
   }
-  
+
   render() {
     return (<Router>
       <main>
-        <nav class="top">
-          <Link to="/"><p class="title"><img class="title-img" src={logo2}/>JustAmity</p></Link>
+        <nav class="top-scroll">
+          <Link to="/"><p class="title"><img class="title-img" src={logo2}/>Amity</p></Link>
           <div class="links-div">
             <a class="links-div-link"><Link to="/about">About Us</Link></a>
             <a class="links-div-link"><Link to="/contact">Contact</Link></a>
           </div>
           {!this.state.signed && this.state.stateFetched &&
-            <div class="profile-div"><Link to="/login"><button>Login</button></Link></div>
+            <div class="links-div-link"><Link to="/login">Login</Link></div>
           }
           {this.state.signed &&
             <div class="profile-div">
@@ -119,7 +114,7 @@ class TopNavBar extends React.Component {
       </main>
   </Router>)
   }
-  
+
   componentDidMount() {
 
   }
@@ -133,17 +128,12 @@ class Home extends React.Component {
       <div class="home-div">
         <div class="home-bg">
           <div class="home-text">
-            <p class="slogan">Meet your next favorite friend.</p>
+            <p class="slogan">Friendship starts here.</p>
+            <p class ="slogan-under">Sign up to meet your new friend!</p>
             <img class="home-img"/>
             <div class="horizontal-center">
-              <div class="question-div">
-                <p class="question-title">Deciding who to friend next?</p>
-                <p class="question-answer">You’re in the right place. Tell us what topics or interests you’ve enjoyed in the past, and we’ll give you surprisingly insightful recommendations.</p>
-              </div>
-              <div class="question-div">
-                <p class="question-title">What are your friends up to?</p>
-                <p class="question-answer">Chances are your friends are discussing their favorite (and least favorite) things on JustAmity.</p>
-              </div>
+                <div class="home-buttons"><Link to="/login">Sign Up</Link></div>
+                <div class="home-buttons"><Link to="/login">Login</Link></div>
             </div>
           </div>
         </div>
@@ -174,7 +164,7 @@ class Home extends React.Component {
       </div>
     );
   }
-}  
+}
 
 class About extends React.Component {
   render() {
@@ -194,13 +184,13 @@ class About extends React.Component {
             </a>
           </li>
           <li>
-            <a href="we have no google">
+            <a href="https://www.linkedin.com/in/jasmine-bae">
               <i class="fa fa-google-plus" aria-hidden="true"></i>
-              <span> - Google</span>
+              <span> - LinkedIn</span>
             </a>
           </li>
           <li>
-            <a href="href=https://www.instagram.com/just_amity">
+            <a href="https://www.instagram.com/just_amity">
               <i class="fa fa-instagram" aria-hidden="true"></i>
               <span> - Instagram</span>
             </a>
@@ -220,7 +210,7 @@ class Profile extends React.Component {
       friends: 0,
       match: null
     };
-    
+
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         var user = firebase.auth().currentUser;
@@ -267,7 +257,7 @@ class Profile extends React.Component {
       }
     });
   }
-  
+
   match = () => {
     database.ref('matches').once('value').then((snapshot) => {
       var potentialFriends = snapshot.val();
@@ -312,7 +302,7 @@ class Profile extends React.Component {
       }
     });
   }
-  
+
   handleSelect = (e) => {
     console.log(e);
     var locationRef = firebase.database().ref('profiles/' + this.state.user.uid);
@@ -324,11 +314,10 @@ class Profile extends React.Component {
         location: e.label
     });
   }
-  
+
   render() {
     if (firebase.auth().currentUser) {
       return (
-        //<p>Y{"o".repeat(10)}</p>
         <div>
           <div class="profile-container">
             <div class="profile-left">
@@ -354,7 +343,7 @@ class Profile extends React.Component {
               <div class="friends">
                 <p class="profile-friends-title">Friends</p>
                 <p class="profile-friends-count">You currently have {this.state.friends} friend{this.state.friends != 1 && 's'}.</p>
-                <progress value="32" max="100"> 32% </progress> 
+                <progress value="32" max="100"> 32% </progress>
                 <button onClick={this.match}>Make a friend!!</button>
               </div>
               <div>
@@ -383,15 +372,15 @@ class Profile extends React.Component {
       <p>No user signed in.</p>
     );
   }
-  
+
   componentDidMount() {
-    
+
   }
-}  
+}
 
 class Messages extends React.Component {
   colors = true;
-  
+
   constructor() {
     super();
     this.state = {
@@ -440,14 +429,14 @@ class Messages extends React.Component {
         });
         console.log(snapshot.val());
       });
-      
-        
+
+
       } else {
 
       }
     });
   }
-  
+
   renderChatListItem = (contact) => {
     var lastMessage = this.state.user.contacts[contact].messages[Object.keys(this.state.user.contacts[contact].messages).length - 1];
     var unread = this.state.user.contacts[contact].unread;
@@ -459,22 +448,22 @@ class Messages extends React.Component {
       </div>
     </div>);
   }
-  
+
   randomPhrase= () => {
     var song = Array("Hey whats up", "Haha thats really funny!", "That sounds really fun!", "Tfw when you are a cat", "Hello!", "Do you want to go get boba", "Yoooo uwu", "LOL", "Yes!", "Sorry I am busy. :(", "How are you doing?", "That's really cool!", "What do you think?", "LOL im in");
     return song[Math.floor(Math.random() * song.length)];
   }
-  
+
   randomName= () => {
     var song = Array("John", "Jack", "Emma", "James", "Sarah", "Ronny", "Alex", "Jocelyn", "Bode", "Boser", "Gireeja", "Eva", "Evelyn", "Tom", "Hanna", "Jenny", "Kaley", "Helen", "Helena", "Amy", "Athena", "Bill", "Melinda");
     return song[Math.floor(Math.random() * song.length)];
   }
-  
+
   randomColor = (function lol(m, s, c) {
                   return s[m.floor(m.random() * s.length)] +
                       (c && lol(m, s, c - 1));
               });
-  
+
   renderFakeChatListItem = () => {
     var lastMessage = this.randomPhrase();
     var name = this.randomName();
@@ -488,11 +477,11 @@ class Messages extends React.Component {
       </div>
     </div>);
   }
-  
+
   contactObj = (id) => {
     return firebase.database().ref('/users/' + id).once('value');
   }
-  
+
   renderChatList = () => {
     const chats = [];
     for (var contact in this.state.user.contacts) {
@@ -500,7 +489,7 @@ class Messages extends React.Component {
     }
     return chats;
   }
-  
+
   writeUserMessage = (contact, message) => {
     var messageRef = firebase.database().ref('users/' + this.state.user.uid + '/contacts/' + contact + '/messages/' + this.state.user.contacts[contact].messages.length);
     messageRef.set({
@@ -517,13 +506,13 @@ class Messages extends React.Component {
         unread: true
     });
   }
-  
+
   updateInputValue(evt) {
     this.setState({
       inputValue: evt.target.value
     });
   }
-  
+
   onKeyDown = (event: React.KeyboardEvent<HTMLDivElement>): void => {
       if (event.key === 'Enter') {
         if (this.state.inputValue) {
@@ -536,7 +525,7 @@ class Messages extends React.Component {
         }
       }
     }
-  
+
   readMessage = (contact) => {
     if (contact) {
       var unreadRef = firebase.database().ref('users/' + this.state.user.uid + '/contacts/' + this.state.activeChat);
@@ -545,7 +534,7 @@ class Messages extends React.Component {
       });
     }
   }
-  
+
   isIterable(obj) {
   // checks for null and undefined
     if (obj == null) {
@@ -553,7 +542,7 @@ class Messages extends React.Component {
     }
     return typeof obj[Symbol.iterator] === 'function';
   }
-  
+
   renderChatFocus = (contact) => {
     const messages = [];
     console.log(this.state.contactRef);
@@ -593,9 +582,9 @@ class Messages extends React.Component {
           <input value={this.state.inputValue} onChange={evt => this.updateInputValue(evt)} onKeyDown={this.onKeyDown} placeholder="Type a message" class="chat-focus-type-input"/>
         </div>
       </div>);
-  
+
   }
-  
+
   render() {
     return (
       <div class="horizontal">
@@ -606,21 +595,21 @@ class Messages extends React.Component {
       </div>
     );
   }
-  
+
   scrollToBottom() {
     this.el.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'start' });
   }
-  
+
   componentDidMount() {
-    
+
   }
-  
+
   componentDidUpdate() {
     if (this.el) {
       this.scrollToBottom();
     }
   }
-}  
+}
 
 class Contact extends React.Component {
   render() {
@@ -630,7 +619,7 @@ class Contact extends React.Component {
       </div>
     );
   }
-}  
+}
 
 class Login extends React.Component {
   constructor() {
@@ -639,7 +628,7 @@ class Login extends React.Component {
       authenticated: false
     };
   }
-  
+
   render() {
     return (
       <div>
@@ -648,7 +637,7 @@ class Login extends React.Component {
       </div>
     );
   }
-  
+
   componentDidMount() {
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -662,12 +651,13 @@ class Login extends React.Component {
       }
     });
   }
-}  
+}
 
 class Logout extends React.Component {
   render() {
-    return (
-      <p>You have been logged out.</p>
-    );
+    return (<div>
+    <Redirect to="/justamity"/>
+    </div>
+  )
   }
-}  
+}

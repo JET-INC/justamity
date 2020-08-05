@@ -3,32 +3,29 @@ h1 {
 }
 
 .top {
-  /*background-color: #BBE4FB;*/
-  overflow:hidden;
   display: flex;
   flex-direction: row;
   border-width: 0px;
   border-style: solid;
   border-color: lightgrey;
-  margin: 0px;
-  padding: 0px;
   padding-left: 15px;
-  padding-right: 0px;
+  padding-right: 10px;
   background-color: white;
+  position: fixed;
+  top: 0;
+  width: 98%;
 }
 
 .top-scroll {
-  /*background-color: #BBE4FB;*/
-  overflow:hidden;
   display: flex;
   flex-direction: row;
   border-width: 0px;
   border-style: solid;
   border-color: lightgrey;
   margin: 0px;
-  padding: 10px;
   padding-left: 15px;
   padding-right: 10px;
+  background-color: white;
   position: fixed;
   top: 0;
   width: 98%;

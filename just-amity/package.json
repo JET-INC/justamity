@@ -10,6 +10,7 @@
     "@testing-library/user-event": "^7.2.1",
     "firebase": "^7.15.5",
     "firebaseui": "^4.5.1",
+    "npm-start": "^1.4.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-google-login": "^5.1.20",
