@@ -172,7 +172,7 @@ class Home extends React.Component {
         <div class="home-bg">
           <div class="home-text">
             <p class="slogan">Friendships start here.</p>
-            <p class ="slogan-under">A new way to connect with other students.<br/> Sign up today!</p>
+            <p class ="slogan-under">A new way to connect at college.<br/> Sign up today!</p>
             <img class="home-img"/>
             <div class="horizontal-center">
                 <div class="home-buttons"> <Link to="/login">Sign Up</Link></div>
