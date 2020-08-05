@@ -41,10 +41,12 @@ const SignIn = () => {
             signInWithGoogle();
           }}
         >
-          Sign in with Google
+          Sign in with BMail
         </Button>
+        <br/>
+        <br/>
         <p className="text-center my-3">
-          Log in with your @berkeley.edu email to continue. 
+          Log in with your @berkeley.edu email to continue.
         </p>
       </div>
     </div>

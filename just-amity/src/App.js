@@ -85,7 +85,12 @@ class TopNavBar extends React.Component {
 
   logout = (event) => {
     firebase.auth().signOut();
-    this.render()
+    this.setState({
+      signed: false,
+      photo: null,
+      stateFetched: false
+    });
+    this.render();
   }
 
   render() {
@@ -157,7 +162,7 @@ class Home extends React.Component {
         this.setState({
           signed: false,
           photo: null,
-          stateFetched: true
+          stateFetched: false
         });
       }
     });
@@ -170,7 +175,7 @@ class Home extends React.Component {
         <div class="home-bg">
           <div class="home-text">
             <p class="slogan">Friendship starts here.</p>
-            <p class ="slogan-under">Sign up to meet your new friend!</p>
+            <p class ="slogan-under">We are a group of UC Berkeley students committed to help forge friendships. Sign up today!</p>
             <img class="home-img"/>
             <div class="horizontal-center">
                 <div class="home-buttons" onClick={<Redirect to="/login"/>}>Sign Up</div>
@@ -186,8 +191,6 @@ class Home extends React.Component {
               <p class="footer-column-links">Careers</p>
               <p class="footer-column-links">Terms</p>
               <p class="footer-column-links">Privacy</p>
-
-
             </div>
             <div class="footer-column">
               <p class="footer-column-title">Work with us</p>
@@ -430,7 +433,6 @@ class Profile extends React.Component {
       );
     }
     return (
-      //<p>Y{"o".repeat(10)}</p>
       <p>No user signed in.</p>
     );
   }
@@ -706,7 +708,7 @@ class Login extends React.Component {
     return (
       <div>
         {!this.state.authenticated && <SignIn />}
-        {this.state.authenticated && <Redirect to="/profile" />}
+        {this.state.authenticated && <Redirect to="/messages" />}
       </div>
     );
   }
