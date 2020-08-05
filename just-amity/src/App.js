@@ -14,7 +14,6 @@ import 'semantic-ui-css/semantic.min.css'
 import './App.css';
 import './firebase.js';
 import { createBrowserHistory } from 'history';
-
 import './nav.css';
 import { Fragment } from "react";
 import { GoogleLogin } from 'react-google-login';
@@ -31,8 +30,6 @@ import { Progress } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
 import { Header } from 'semantic-ui-react'
 import { Label } from 'semantic-ui-react'
-
-
 
 var database = firebase.database();
 
@@ -171,7 +168,7 @@ class Home extends React.Component {
   render() {
     return (
       <div class="home-div">
-      {this.state.signed && <Redirect to='/login'  />}
+      {this.state.signed && <Redirect to='/login'/>}
         <div class="home-bg">
           <div class="home-text">
             <p class="slogan">Friendship starts here.</p>
