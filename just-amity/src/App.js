@@ -171,14 +171,17 @@ class Home extends React.Component {
       {this.state.signed && <Redirect to='/login'/>}
         <div class="home-bg">
           <div class="home-text">
-            <p class="slogan">Friendship starts here.</p>
-            <p class ="slogan-under">We are a group of UC Berkeley students committed to help forge friendships. Sign up today!</p>
+            <p class="slogan">Friendships start here.</p>
+            <p class ="slogan-under">A new way to connect with other students.<br/> Sign up today!</p>
             <img class="home-img"/>
             <div class="horizontal-center">
-                <div class="home-buttons" onClick={<Redirect to="/login"/>}>Sign Up</div>
-                <div class="home-buttons" onClick={<Redirect to="/login"/>}>Login</div>
+                <div class="home-buttons"> <Link to="/login">Sign Up</Link></div>
+                <div class="home-buttons"> <Link to="/login">Login</Link></div>
             </div>
           </div>
+        </div>
+        <div class ="footer-column">
+          <p class = "slogan-under"> Cool photos here :)</p>
         </div>
         <footer>
           <div class="footer-content">
@@ -207,7 +210,7 @@ class Home extends React.Component {
   }
 }
 
-class About extends React.Component {
+class Contact extends React.Component {
   render() {
     return (
       <div>
@@ -225,9 +228,9 @@ class About extends React.Component {
             </a>
           </li>
           <li>
-            <a href="https://www.linkedin.com/in/jasmine-bae">
+            <a href="mailto:jasmine.bae@berkeley.edu">
               <i class="fa fa-google-plus" aria-hidden="true"></i>
-              <span> - LinkedIn</span>
+              <span> - Email</span>
             </a>
           </li>
           <li>
@@ -377,7 +380,7 @@ class Profile extends React.Component {
             <div class="profile-left">
               <img class="profile-img" src={firebase.auth().currentUser.photoURL}/>
               <Header as="h2">{firebase.auth().currentUser.displayName}</Header>
-              <Link to="/logout"><Button color='yellow' onClick={f => firebase.auth().signOut()}>Logout</Button></Link>
+              <Button color='yellow' onClick={f => firebase.auth().signOut()}>Logout</Button>
             </div>
             {this.state.match && this.state.match === "yes" &&
               (<div class="footer-toast" ref="toast-friend">
@@ -683,11 +686,11 @@ class Messages extends React.Component {
   }
 }
 
-class Contact extends React.Component {
+class About extends React.Component {
   render() {
     return (
       <div>
-        Please do not contact us.
+        We are cool Cal students with a mission.
       </div>
     );
   }
