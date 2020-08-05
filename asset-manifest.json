@@ -1,26 +1,25 @@
 {
   "files": {
-    "main.css": "/justamity/static/css/main.e345bd0c.chunk.css",
-    "main.js": "/justamity/static/js/main.793908f4.chunk.js",
-    "main.js.map": "/justamity/static/js/main.793908f4.chunk.js.map",
+    "main.css": "/justamity/static/css/main.f8ef9499.chunk.css",
+    "main.js": "/justamity/static/js/main.824fd7c5.chunk.js",
+    "main.js.map": "/justamity/static/js/main.824fd7c5.chunk.js.map",
     "runtime-main.js": "/justamity/static/js/runtime-main.c2860ad6.js",
     "runtime-main.js.map": "/justamity/static/js/runtime-main.c2860ad6.js.map",
-    "static/js/2.52d1ec96.chunk.js": "/justamity/static/js/2.52d1ec96.chunk.js",
-    "static/js/2.52d1ec96.chunk.js.map": "/justamity/static/js/2.52d1ec96.chunk.js.map",
+    "static/js/2.fe25dfc3.chunk.js": "/justamity/static/js/2.fe25dfc3.chunk.js",
+    "static/js/2.fe25dfc3.chunk.js.map": "/justamity/static/js/2.fe25dfc3.chunk.js.map",
     "index.html": "/justamity/index.html",
-    "precache-manifest.4a2b2346f7b2183d09e98c0635476651.js": "/justamity/precache-manifest.4a2b2346f7b2183d09e98c0635476651.js",
+    "precache-manifest.446fd5302578a8ce83b68bbd6812fd7e.js": "/justamity/precache-manifest.446fd5302578a8ce83b68bbd6812fd7e.js",
     "service-worker.js": "/justamity/service-worker.js",
-    "static/css/main.e345bd0c.chunk.css.map": "/justamity/static/css/main.e345bd0c.chunk.css.map",
-    "static/js/2.52d1ec96.chunk.js.LICENSE.txt": "/justamity/static/js/2.52d1ec96.chunk.js.LICENSE.txt",
-    "static/media/App.css": "/justamity/static/media/bggggg.9a04d66f.png",
+    "static/css/main.f8ef9499.chunk.css.map": "/justamity/static/css/main.f8ef9499.chunk.css.map",
+    "static/js/2.fe25dfc3.chunk.js.LICENSE.txt": "/justamity/static/js/2.fe25dfc3.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/justamity/static/media/homeBackground.3737bdfc.png",
     "static/media/logo3.svg": "/justamity/static/media/logo3.0addf8c8.svg",
-    "static/media/mail.png": "/justamity/static/media/mail.dce4df7f.png",
-    "static/media/people-happy.jpg": "/justamity/static/media/people-happy.0981ac3b.jpg"
+    "static/media/mail.png": "/justamity/static/media/mail.dce4df7f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.c2860ad6.js",
-    "static/js/2.52d1ec96.chunk.js",
-    "static/css/main.e345bd0c.chunk.css",
-    "static/js/main.793908f4.chunk.js"
+    "static/js/2.fe25dfc3.chunk.js",
+    "static/css/main.f8ef9499.chunk.css",
+    "static/js/main.824fd7c5.chunk.js"
   ]
 }
