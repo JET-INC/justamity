@@ -8,24 +8,34 @@ html {
   background-color: white;
 }
 
-<html>
-<head>
-<link rel="stylesheet"
-        href="https://fonts.googleapis.com/css?family=Raleway">
-<style>
-.css-selector {
-font-family: 'Raleway', serif;
+/* latin-ext */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v17/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCGPrEHJA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+0259, U+1E00-1EFF, U+2020, U+20A0-20AB, U+20AD-20CF, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+/* latin */
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 400;
+  src: url(https://fonts.gstatic.com/s/raleway/v17/1Ptxg8zYS_SKggPN4iEgvnHyvveLxVvaorCIPrE.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+* {
+  font-family: 'Raleway', serif;
+  font-weight: 550;
 }
 
 body {
   height: 100%;
   overflow-x: hidden;
-  margin-top: 70px;
+  overflow-y: auto;
+  padding-top: 70px;
 }
-
-</style>
-</head>
-</html>
 
 header {
   height: 100px;
@@ -119,10 +129,14 @@ font-family: 'Raleway', serif;
 }
 
 .symbol {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 0px;
-  height: 32px;
-  margin-top: 4px;
-  margin-right: 10px;
+  padding-left: 3px;
+  margin-right: 8px;
+  height: 35px;
   border-style: solid;
   border-width: 1.5px;
   border-radius: 5px;
@@ -132,7 +146,7 @@ font-family: 'Raleway', serif;
 .symbol:hover {
   border-color: lightgrey;
   background-color: #efefef;
-  filter: brightness(85%) sepia(89%) hue-rotate(-7deg);
+  color: teal;
 }
 
 .profile-img {
@@ -165,12 +179,12 @@ a.header-link {
 .grey {
   background-color: #efefef;
   padding: 1px;
-  padding-bottom: 1.5px;
+  padding-bottom: 1.2px;
   border-radius: 5px;
 }
 
 .grey:hover {
-  background-color: rgb(248, 199, 5, 0.8);
+  background-color: rgb(127, 187, 185, 0.9);
 }
 
 .profile-top-right-name {
@@ -394,7 +408,7 @@ a.header-link {
 
 .chat-focus-type-input {
   width: 100%;
-  font-size: 14px;
+  font-size: 15px;
   border-radius: 10px;
   text-indent: 8px;
   padding: 8px;
@@ -403,6 +417,7 @@ a.header-link {
   border-color: darkgrey;
   border-width: 0px;
   background-color: #f2f2f2;
+  font-weight: 400;
   color: black;
 }
 
@@ -426,6 +441,11 @@ a.header-link {
   margin: auto;
 }
 
+.vertical {
+  display: flex;
+  flex-direction: column;
+}
+
 .horizontal {
   display: flex;
 }
@@ -433,7 +453,7 @@ a.header-link {
 .horizontal-wrap {
   display: flex;
   flex-wrap: wrap;
-  gap: 5px;
+  align-content: flex-start
 }
 
 .horizontal-center {
@@ -490,6 +510,23 @@ a.header-link {
   margin-left: 30px;
   margin-top: 5px;
   width: 25%;
+}
+
+.profile-right-right {
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px;
+  margin-top: 5px;
+  width: 35%;
+}
+
+.profile-right-right-right {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-left: 30px;
+  margin-right: 30px;
+  margin-top: 5px;
 }
 
 .friends {
@@ -592,7 +629,7 @@ a.header-link {
   text-align: left;
   margin-top: auto;
   margin-bottom: 30px;
-  border-radius: 8px;
+  border-radius: 5px;
   background-color: white;
   color: #7FBBB9;
   padding: 8px 16px;
@@ -629,6 +666,26 @@ a.header-link {
 
 .footer-column-links {
   margin: 5px;
+}
+
+.notification-bubble {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  height: 18px;
+  width: 18px;
+  text-align: center;
+  vertical-align: middle;
+  padding: 0px;
+  border-radius: 50%;
+  font-size: 11px;
+  background: red;
+  color: white;
+}
+
+.notification-bubble-text {
+  margin: auto;
+  padding: 0px;
 }
 
 ul {

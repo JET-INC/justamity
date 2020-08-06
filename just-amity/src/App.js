@@ -30,6 +30,10 @@ import { Progress } from 'semantic-ui-react'
 import { Icon } from 'semantic-ui-react'
 import { Header } from 'semantic-ui-react'
 import { Label } from 'semantic-ui-react'
+import { Dropdown } from 'semantic-ui-react'
+import { Card, Feed } from 'semantic-ui-react'
+import { Statistic } from 'semantic-ui-react'
+import ReactTooltip from 'react-tooltip';
 
 var database = firebase.database();
 
@@ -38,6 +42,13 @@ const options = [
   { value: 'strawberry', label: 'Right part of US' },
   { value: 'vanilla', label: 'Top part of US' },
   { value: 'orange', label: 'Bottom part of US' }
+];
+
+const optionsInterests = [
+  { value: 'cats', label: 'Cats' },
+  { value: 'dogs', label: 'Dogs' },
+  { value: 'birds', label: 'Birds' },
+  { value: 'lizards', label: 'Lizards' }
 ];
 
 function App() {
@@ -70,6 +81,20 @@ class TopNavBar extends React.Component {
           photo: firebase.auth().currentUser.photoURL,
           stateFetched: true
         });
+        var contacts = firebase.database().ref('users/' + firebase.auth().currentUser.uid + '/contacts');
+        contacts.on('value', (snapshot) => {
+          var unreads = 0;
+          for (var v in snapshot.val()) {
+            if (snapshot.val()[v].unread) {
+              unreads += 1;
+            }
+          }
+          this.setState({
+            unreads: unreads
+          });
+          console.log(unreads);
+          console.log(this.state.unreads)
+        });
       } else {
         this.setState({
           signed: false,
@@ -91,6 +116,7 @@ class TopNavBar extends React.Component {
   }
 
   render() {
+    document.body.style.overflow = 'auto';
     return (<Router>
       <main>
         <nav class="top-scroll">
@@ -107,7 +133,16 @@ class TopNavBar extends React.Component {
 
           {this.state.signed &&
             <div class="profile-div">
-              <Link to="/messages"><img src={mailSymbol} class="symbol"/><div class="row"/></Link>
+              <Link to="/messages">
+                <div class="symbol">
+                  <Icon name="mail outline" size='big'/>
+                  {this.state.unreads > 0 && (
+                    <div class="notification-bubble">
+                      <p class="notification-bubble-text">{this.state.unreads}</p>
+                    </div>
+                  )}
+                </div>
+              </Link>
               <Link class='grey' to="/profile">
                 <img class="profile-img-head" src={this.state.photo}/>
                 <p class="profile-top-right-name">{firebase.auth().currentUser.displayName}</p>
@@ -254,6 +289,7 @@ class Profile extends React.Component {
       friends: 0,
       match: null
     };
+    
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -363,9 +399,10 @@ class Profile extends React.Component {
     var ret = [];
     for (var x in lst) {
       ret.push(
-        <Label style={{width: "auto"}}>
+        <Label style={{width: "auto", margin: "2px"}}>
           <Icon name="user" />
           {lst[x]}
+          <Icon name="close" />
         </Label>
       )
     }
@@ -380,7 +417,13 @@ class Profile extends React.Component {
             <div class="profile-left">
               <img class="profile-img" src={firebase.auth().currentUser.photoURL}/>
               <Header as="h2">{firebase.auth().currentUser.displayName}</Header>
-              <Button color='yellow' onClick={f => firebase.auth().signOut()}>Logout</Button>
+              <div class="vertical" style={{margin: "10px"}}>
+                <Statistic color='teal' size='mini'>
+                  <Statistic.Label>Member since</Statistic.Label>
+                  <Statistic.Value>Jan '20</Statistic.Value>
+                </Statistic>
+              </div>
+              <Button color='teal' onClick={f => firebase.auth().signOut()}>Logout</Button>
             </div>
             {this.state.match && this.state.match === "yes" &&
               (<div class="footer-toast" ref="toast-friend">
@@ -400,8 +443,9 @@ class Profile extends React.Component {
               <div class="friends">
                 <p class="profile-friends-title">Friends</p>
                 <p class="profile-friends-count">You currently have {this.state.friends} friend{this.state.friends != 1 && 's'}.</p>
-                <Progress percent={33} style={{margin: "10px 0px"}}/>
-                <Button color='yellow' onClick={this.match} style={{width: "150px"}}><Icon name='user' />Make friend</Button>
+                <Progress data-tip="Your friend making energy<br>meter is recharging." percent={56} progress style={{margin: "10px 0px"}}/>
+                <ReactTooltip place="bottom" effect="solid" offset={{top: 0, right: 75}} multiline="true" />
+                <Button color='teal' onClick={this.match} style={{width: "150px"}}><Icon name='user' />Make friend</Button>
               </div>
               <div>
                 <p class="profile-friends-title">Profile</p>
@@ -420,11 +464,16 @@ class Profile extends React.Component {
                 />}
               </div>
             </div>
-            <div class="profile-right">
+            <div class="profile-right-right">
               <div class="friends">
                 <p class="profile-friends-title">Interests</p>
+                <Select
+                  onChange={null}
+                  options={optionsInterests}
+                  defaultValue={{ label: "Search for interest", value: 1 }}
+                />
                 <div class="horizontal-wrap">
-                  {this.tags(["Bananas", "Rocket League", "Cats", "Phones", "aslfhlfhksjdhhsldg"])}
+                  {this.tags(["Bananas", "Rocket League", "Cats", "Phones", "Strings", "Shoes", "Hats"])}
                 </div>
               </div>
             </div>
