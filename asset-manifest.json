@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/justamity/static/css/main.1d95d2b0.chunk.css",
-    "main.js": "/justamity/static/js/main.ed7334ed.chunk.js",
-    "main.js.map": "/justamity/static/js/main.ed7334ed.chunk.js.map",
+    "main.css": "/justamity/static/css/main.859b6eab.chunk.css",
+    "main.js": "/justamity/static/js/main.78591ae9.chunk.js",
+    "main.js.map": "/justamity/static/js/main.78591ae9.chunk.js.map",
     "runtime-main.js": "/justamity/static/js/runtime-main.c2860ad6.js",
     "runtime-main.js.map": "/justamity/static/js/runtime-main.c2860ad6.js.map",
     "static/css/2.ced63dfd.chunk.css": "/justamity/static/css/2.ced63dfd.chunk.css",
-    "static/js/2.6b57ea65.chunk.js": "/justamity/static/js/2.6b57ea65.chunk.js",
-    "static/js/2.6b57ea65.chunk.js.map": "/justamity/static/js/2.6b57ea65.chunk.js.map",
+    "static/js/2.36392843.chunk.js": "/justamity/static/js/2.36392843.chunk.js",
+    "static/js/2.36392843.chunk.js.map": "/justamity/static/js/2.36392843.chunk.js.map",
     "index.html": "/justamity/index.html",
-    "precache-manifest.0eb1a1c9b748d3a4ed5bfbee10cb7c97.js": "/justamity/precache-manifest.0eb1a1c9b748d3a4ed5bfbee10cb7c97.js",
+    "precache-manifest.ce59135a0886b81bc9d0ce955c34d307.js": "/justamity/precache-manifest.ce59135a0886b81bc9d0ce955c34d307.js",
     "service-worker.js": "/justamity/service-worker.js",
     "static/css/2.ced63dfd.chunk.css.map": "/justamity/static/css/2.ced63dfd.chunk.css.map",
-    "static/css/main.1d95d2b0.chunk.css.map": "/justamity/static/css/main.1d95d2b0.chunk.css.map",
-    "static/js/2.6b57ea65.chunk.js.LICENSE.txt": "/justamity/static/js/2.6b57ea65.chunk.js.LICENSE.txt",
+    "static/css/main.859b6eab.chunk.css.map": "/justamity/static/css/main.859b6eab.chunk.css.map",
+    "static/js/2.36392843.chunk.js.LICENSE.txt": "/justamity/static/js/2.36392843.chunk.js.LICENSE.txt",
     "static/media/amlogo.png": "/justamity/static/media/amlogo.e4727183.png",
     "static/media/semantic.min.css": "/justamity/static/media/outline-icons.ef60a4f6.woff",
     "static/media/App.css": "/justamity/static/media/homeBackground.3737bdfc.png"
@@ -21,8 +21,8 @@
   "entrypoints": [
     "static/js/runtime-main.c2860ad6.js",
     "static/css/2.ced63dfd.chunk.css",
-    "static/js/2.6b57ea65.chunk.js",
-    "static/css/main.1d95d2b0.chunk.css",
-    "static/js/main.ed7334ed.chunk.js"
+    "static/js/2.36392843.chunk.js",
+    "static/css/main.859b6eab.chunk.css",
+    "static/js/main.78591ae9.chunk.js"
   ]
 }
