@@ -152,7 +152,6 @@ class TopNavBar extends React.Component {
         </nav>
 
       <Route path="/" exact component={Home} />
-      <Route path="/justamity" exact component={Home} />
       <Route path="/about"  component={About} />
       <Route path="/contact"  component={Contact} />
       <Route path="/profile"  component={Profile} />
@@ -289,7 +288,7 @@ class Profile extends React.Component {
       friends: 0,
       match: null
     };
-    
+
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -780,7 +779,7 @@ class Login extends React.Component {
 class Logout extends React.Component {
   render() {
     return (<div>
-    <Redirect to="/justamity"/>
+    <Redirect to="/"/>
     </div>
   )
   }
