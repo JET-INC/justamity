@@ -5,6 +5,23 @@ h1 {
 .top {
   display: flex;
   flex-direction: row;
+  margin: 0px;
+  /* MAYBE KEEP */
+  padding-left: 50px;
+  padding-right: 20px;
+
+  position: fixed;
+  width: 100%;
+  height: 101px;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 10px #00000029;
+  opacity: 1;
+  top: 0px;
+  left: 0px;
+
+  /* OLD
+  display: flex;
+  flex-direction: row;
   border-width: 0px;
   border-style: solid;
   border-color: lightgrey;
@@ -14,11 +31,30 @@ h1 {
   position: fixed;
   top: 0;
   width: 100%;
-  height:70px;
+  height:70px; */
 }
 
+/* Header Bar */
 .top-scroll {
   display: flex;
+  flex-direction: row;
+
+  margin: 0px;
+  /* MAYBE KEEP */
+   padding-left: 50px;
+  padding-right: 20px;
+
+  position: fixed;
+  width: 100%;
+  height: 10%;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 4px 10px #00000029;
+  opacity: 1;
+  top: 0px;
+  left: 0px;
+
+  /* OLD */
+  /* display: flex;
   flex-direction: row;
   border-width: 0px;
   border-style: solid;
@@ -30,7 +66,7 @@ h1 {
   position: fixed;
   top: 0;
   width: 100%;
-  height: 70px;
+  height: 70px; */
 
 }
 
@@ -48,17 +84,24 @@ h1 {
 }
 
 a.primary {
-  color: rgb(248, 199, 5);
   text-decoration: none;
 }
 
 a {
-  margin: auto;
+  /* margin: auto;
   margin-left: 0px;
   margin-right: 0px;
   color: #202020;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: bold; */
+}
+
+a.home-btn {
+  -webkit-appearance: button;
+   -moz-appearance: button;
+   appearance: button;
+   text-decoration: none;
+   font-weight: bold;
 }
 
 button:hover {
@@ -69,10 +112,9 @@ button:hover {
 
 
 button.header-button{
-  background-color: rgb(248, 199, 5);
-  color: white;
+  color: black;
   font-weight: bold;
-  border: 0px solid #e7f5fe;
+  /* border: 0px solid #e7f5fe; */
   height: 100%;
   padding: 0px 15px;
   margin: 0px;

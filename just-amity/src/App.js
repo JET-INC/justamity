@@ -3,11 +3,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { browserHistory } from 'react-router';
 import SignIn from "./Components/SignIn";
 import SignUp from "./Components/SignUp";
-import Application from "./Components/Application";
-import UserProvider from "./providers/UserProvider";
-import ProfilePage from "./Components/ProfilePage";
-import { UserContext } from "./providers/UserProvider";
-import logo from './SunAndCloud.png';
 import logo2 from './amlogo.png';
 import mailSymbol from './mail2.png'
 import 'semantic-ui-css/semantic.min.css'
@@ -123,8 +118,9 @@ class TopNavBar extends React.Component {
           <Link to="/"><img class="title-img" src={logo2}/></Link>
           <div class="links-div">
             <div class="links-div-link-div">
-              <a class="links-div-link"><Link to="/about">About Us</Link></a>
-              <a class="links-div-link"><Link to="/contact">Contact</Link></a>
+              <a class="links-div-link"><Link to="/">home</Link></a>
+              <a class="links-div-link"><Link to="/about">about</Link></a>
+              <a class="links-div-link"><Link to="/contact">contact</Link></a>
             </div>
             {!this.state.signed && this.state.stateFetched &&
               <Button><Link to="/login">Login</Link></Button>
@@ -205,26 +201,25 @@ class Home extends React.Component {
       {this.state.signed && <Redirect to='/login'/>}
         <div class="home-bg">
           <div class="home-text">
-            <p class="slogan">Friendships start here.</p>
-            <p class ="slogan-under">A new way to connect at college.<br/> Sign up today!</p>
             <img class="home-img"/>
             <div class="horizontal-center">
-                <div class="home-buttons"> <Link to="/login">Sign Up</Link></div>
+                <div class="home-buttons"> <a href="/login" class="home-btn">Sign Up</a></div>
                 <div class="home-buttons"> <Link to="/login">Login</Link></div>
             </div>
           </div>
         </div>
-        <div class ="footer-column">
-          <p class = "slogan-under"> Cool photos here :)</p>
-        </div>
+        <div class="home-bg2"></div>
+
+        <div class ="footer-column"></div>
         <footer>
           <div class="footer-content">
             <div class="footer-column">
               <p class="footer-column-title">Company</p>
-              <p class="footer-column-links">About us</p>
+              <p class="footer-column-links">About Us</p>
               <p class="footer-column-links">Careers</p>
-              <p class="footer-column-links">Terms</p>
-              <p class="footer-column-links">Privacy</p>
+              <p class="footer-column-links">Terms and Conditions</p>
+              <p class="footer-column-links">Privacy Policy</p>
+              <p class="footer-column-title"></p>
             </div>
             <div class="footer-column">
               <p class="footer-column-title">Work with us</p>
@@ -233,7 +228,7 @@ class Home extends React.Component {
 
             </div>
             <div class="footer-column">
-              <p class="footer-column-title">Donate</p>
+              <p class="footer-column-title">Support</p>
               <p class="footer-column-links">$10</p>
               <p class="footer-column-links">$100</p>
             </div>
