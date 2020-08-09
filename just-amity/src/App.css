@@ -37,6 +37,16 @@ body {
   padding-top: 70px;
 }
 
+/* Removes outline on Chrome when a text box is selected */
+textarea:focus {
+  outline: none;
+}
+
+/* Removes outline on Chrome when a text box is selected */
+input:focus{
+  outline: none;
+}
+
 header {
   height: 100px;
   width: 100%;
