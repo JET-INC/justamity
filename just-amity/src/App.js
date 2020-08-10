@@ -7,8 +7,7 @@ import Application from "./Components/Application";
 import UserProvider from "./providers/UserProvider";
 import ProfilePage from "./Components/ProfilePage";
 import { UserContext } from "./providers/UserProvider";
-import logo from './SunAndCloud.png';
-import logo2 from './amlogo2.PNG';
+import logo2 from './amlogo.png';
 import mailSymbol from './mail2.png'
 import 'semantic-ui-css/semantic.min.css'
 import './App.css';
@@ -212,7 +211,7 @@ class Home extends React.Component {
             <p class ="slogan-under">Staying home for the semester?<br/>Feeling lonely and bored?</p>
             <img class="home-img"/>
             <div class="horizontal-right">
-                <div class="home-buttons-secondary"> <Link to="/login">Sign Up</Link></div>
+                <div class="home-buttons-primary"> <Link to="/login">Sign Up</Link></div>
                 <div class="home-buttons-primary"> <Link to="/login">Login</Link></div>
             </div>
           </div>
@@ -224,19 +223,19 @@ class Home extends React.Component {
             <div class="footer-content">
               <div class="footer-column">
                 <p class="footer-column-title">Company</p>
-                <p class="footer-column-links">About us</p>
+                <p class="footer-column-links">About Us</p>
                 <p class="footer-column-links">Careers</p>
                 <p class="footer-column-links">Terms</p>
                 <p class="footer-column-links">Privacy</p>
               </div>
               <div class="footer-column">
-                <p class="footer-column-title">Work with us</p>
+                <p class="footer-column-title">Work With Us</p>
                 <p class="footer-column-links">Friends</p>
                 <p class="footer-column-links">Advertise</p>
 
               </div>
               <div class="footer-column">
-                <p class="footer-column-title">Donate</p>
+                <p class="footer-column-title">Support</p>
                 <p class="footer-column-links">$10</p>
                 <p class="footer-column-links">$100</p>
               </div>
@@ -292,7 +291,7 @@ class Profile extends React.Component {
       friends: 0,
       match: null
     };
-    
+
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {

@@ -94,10 +94,9 @@ font-family: 'Raleway', serif;
 }
 
 .links-div-link {
-  font-size: 16px;
+  font-size: 2.5vh;
+  font-weight: 300;
   padding: 20px 30px;
-  transition-duration: .2s;
-  font-weight: 200;
 }
 
 .links-div-link:hover {
@@ -174,7 +173,7 @@ font-family: 'Raleway', serif;
 .symbol:hover {
   border-color: lightgrey;
   background-color: #efefef;
-  color: teal;
+  color: white;
 }
 
 .profile-img {
@@ -688,10 +687,9 @@ a.header-link {
 }
 
 .home-buttons-primary {
-  margin: 10px;
-  text-align: left;
+  margin: 1.5vw;
   margin-top: auto;
-  margin-bottom: 30px;
+  margin-bottom: auto;
   border-radius: 23px;
   background-color: #DD5272;
   padding: 14px 10px;
@@ -700,15 +698,24 @@ a.header-link {
   cursor: pointer;
   border: 3.5px solid white;
   width: 160px;
-}
-
-.home-buttons-primary a {
   color: white;
-  font-weight: normal;
+  max-width: 100%;
 }
 
 .home-buttons-primary:hover {
-  filter: brightness(96%);
+  margin: 1.5vw;
+  text-align: left;
+  margin-top: auto;
+  margin-bottom: auto;
+  border-radius: 23px;
+  background-color: white;
+  color: #DD5272;
+  padding: 14px 10px;
+  text-align: center;
+  font-size: 20px;
+  cursor: pointer;
+  border: 3.5px solid white;
+  font-weight: bold;
 }
 
 .home-buttons-secondary:hover {
@@ -728,23 +735,24 @@ a.header-link {
   display: flex;
   flex-direction: row;
   text-align: center;
+  margin-left: 4vw;
+  margin-right: 1vw;
+  padding: 7vh;
 }
 
 .footer-column {
-  margin: 30px;
-  margin-left: 125px;
-  margin-right: 125px;
+  margin-left: 10vw;
+  margin-right: 10vw;
   text-align: left;
 }
 
 .footer-column-title {
-  font-size: 16px;
-  margin: 5px;
+  font-size: 20px;
   font-weight: bold;
 }
 
 .footer-column-links {
-  margin: 5px;
+    font-size: 16px;
 }
 
 .notification-bubble {
