@@ -1,28 +1,28 @@
 {
   "files": {
-    "main.css": "/static/css/main.476be8cd.chunk.css",
-    "main.js": "/static/js/main.dbafe5b2.chunk.js",
-    "main.js.map": "/static/js/main.dbafe5b2.chunk.js.map",
-    "runtime-main.js": "/static/js/runtime-main.3fd6edf4.js",
-    "runtime-main.js.map": "/static/js/runtime-main.3fd6edf4.js.map",
-    "static/css/2.7df41cd5.chunk.css": "/static/css/2.7df41cd5.chunk.css",
-    "static/js/2.c09e11ae.chunk.js": "/static/js/2.c09e11ae.chunk.js",
-    "static/js/2.c09e11ae.chunk.js.map": "/static/js/2.c09e11ae.chunk.js.map",
-    "index.html": "/index.html",
-    "precache-manifest.cf3eeacbd314859a66575e6ea6671e9b.js": "/precache-manifest.cf3eeacbd314859a66575e6ea6671e9b.js",
-    "service-worker.js": "/service-worker.js",
-    "static/css/2.7df41cd5.chunk.css.map": "/static/css/2.7df41cd5.chunk.css.map",
-    "static/css/main.476be8cd.chunk.css.map": "/static/css/main.476be8cd.chunk.css.map",
-    "static/js/2.c09e11ae.chunk.js.LICENSE.txt": "/static/js/2.c09e11ae.chunk.js.LICENSE.txt",
-    "static/media/amlogo.png": "/static/media/amlogo.0cf236bb.png",
-    "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff",
-    "static/media/App.css": "/static/media/homeredbg.4197bcb6.png"
+    "main.css": "/justamity/static/css/main.aef6b2d3.chunk.css",
+    "main.js": "/justamity/static/js/main.a3bd23c6.chunk.js",
+    "main.js.map": "/justamity/static/js/main.a3bd23c6.chunk.js.map",
+    "runtime-main.js": "/justamity/static/js/runtime-main.c2860ad6.js",
+    "runtime-main.js.map": "/justamity/static/js/runtime-main.c2860ad6.js.map",
+    "static/css/2.ced63dfd.chunk.css": "/justamity/static/css/2.ced63dfd.chunk.css",
+    "static/js/2.36392843.chunk.js": "/justamity/static/js/2.36392843.chunk.js",
+    "static/js/2.36392843.chunk.js.map": "/justamity/static/js/2.36392843.chunk.js.map",
+    "index.html": "/justamity/index.html",
+    "precache-manifest.b0860efe0b62c1929cc4525b860eda8e.js": "/justamity/precache-manifest.b0860efe0b62c1929cc4525b860eda8e.js",
+    "service-worker.js": "/justamity/service-worker.js",
+    "static/css/2.ced63dfd.chunk.css.map": "/justamity/static/css/2.ced63dfd.chunk.css.map",
+    "static/css/main.aef6b2d3.chunk.css.map": "/justamity/static/css/main.aef6b2d3.chunk.css.map",
+    "static/js/2.36392843.chunk.js.LICENSE.txt": "/justamity/static/js/2.36392843.chunk.js.LICENSE.txt",
+    "static/media/amlogo2.PNG": "/justamity/static/media/amlogo2.a73dca18.PNG",
+    "static/media/semantic.min.css": "/justamity/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/App.css": "/justamity/static/media/homeredbg.4197bcb6.png"
   },
   "entrypoints": [
-    "static/js/runtime-main.3fd6edf4.js",
-    "static/css/2.7df41cd5.chunk.css",
-    "static/js/2.c09e11ae.chunk.js",
-    "static/css/main.476be8cd.chunk.css",
-    "static/js/main.dbafe5b2.chunk.js"
+    "static/js/runtime-main.c2860ad6.js",
+    "static/css/2.ced63dfd.chunk.css",
+    "static/js/2.36392843.chunk.js",
+    "static/css/main.aef6b2d3.chunk.css",
+    "static/js/main.a3bd23c6.chunk.js"
   ]
 }
