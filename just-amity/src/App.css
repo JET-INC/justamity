@@ -31,11 +31,17 @@ background-color: #dd5272;
 }
 
 body {
-  height: 100%;
+  /* min-height: 800px;
   overflow-x: hidden;
-  overflow-y: auto;
+  overflow-y: auto; */
   padding-top: 70px;
+  overflow: scroll;
+  height: 100%;
+  min-height: 100%;
+  display: table;
+  width: 100%
 }
+
 
 /* Removes outline on Chrome when a text box is selected */
 textarea:focus {
@@ -98,6 +104,7 @@ font-family: 'Raleway', serif;
   font-size: 2.5vh;
   font-weight: 300;
   padding: 20px 25px;
+  color: black;
 }
 
 .links-div-link:hover {
@@ -615,20 +622,24 @@ a.header-link {
 .home-bg {
   background-size: 100%;
   background-repeat: no-repeat;
-  height: 100%;
+  height: inherit;
+  width: 100%;
   display: flex;
   align-items: center;
   background-image: url("homeredbg.png");
-  margin-bottom: -10px;
+  flex-direction: column;
 }
 
 .home-bg2 {
+  margin-top: -14vh;
   background-repeat: no-repeat;
   background-size: 100%;
-  height: 175%;
+  height: inherit;
+  width: 100%;
   display: flex;
   align-items: center;
   background-image: url("homebluebg.png");
+  flex-direction: column;
 }
 
 .home-text {
@@ -666,27 +677,31 @@ a.header-link {
   opacity: 1;
 }
 
+
 .footer-content {
+  padding: 10px;
+  text-align: center;
+  background-color: #505555;
   display: flex;
   flex-direction: row;
   text-align: center;
-  background-color: #505555;
   width: 100%;
+  /* display: table-row; */
 }
 
 .footer-column {
-  margin-left: 50px;
-  margin-right: 50px;
+  margin-left: 4vw;
+  margin-right: 1vw;
   text-align: left;
-letter-spacing: 0px;
-color: #FFFFFF;
-opacity: 1;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  opacity: 1;
 }
 
 .footer-column-title {
   font-size: 30px;
   font-weight: bold;
-  padding-top: 80px;
+  padding-top: 5vw;
   padding-left: 11vw;
   margin-bottom: 0px;
 }

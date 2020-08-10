@@ -210,7 +210,6 @@ class Home extends React.Component {
         </div>
         <div class="home-bg2"></div>
 
-        <div class ="footer-column"></div>
         <footer>
           <div class="footer-content">
             <div class="footer-column">
@@ -225,7 +224,6 @@ class Home extends React.Component {
               <p class="footer-column-title">Work with us</p>
               <p class="footer-column-links">Friends</p>
               <p class="footer-column-links">Advertise</p>
-
             </div>
             <div class="footer-column">
               <p class="footer-column-title">Support</p>
@@ -234,6 +232,7 @@ class Home extends React.Component {
             </div>
           </div>
         </footer>
+
       </div>
     );
   }
