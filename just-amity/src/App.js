@@ -3,7 +3,12 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import { browserHistory } from 'react-router';
 import SignIn from "./Components/SignIn";
 import SignUp from "./Components/SignUp";
-import logo2 from './amlogo.png';
+import Application from "./Components/Application";
+import UserProvider from "./providers/UserProvider";
+import ProfilePage from "./Components/ProfilePage";
+import { UserContext } from "./providers/UserProvider";
+import logo from './SunAndCloud.png';
+import logo2 from './amlogo2.PNG';
 import mailSymbol from './mail2.png'
 import 'semantic-ui-css/semantic.min.css'
 import './App.css';
@@ -123,7 +128,7 @@ class TopNavBar extends React.Component {
               <a class="links-div-link"><Link to="/contact">contact</Link></a>
             </div>
             {!this.state.signed && this.state.stateFetched &&
-              <Button><Link to="/login">Login</Link></Button>
+              <Link to="/login"><Icon name="user circle outline icon" disabled size="big"/></Link>
             }
           </div>
 
@@ -148,6 +153,7 @@ class TopNavBar extends React.Component {
         </nav>
 
       <Route path="/" exact component={Home} />
+      <Route path="/justamity" exact component={Home} />
       <Route path="/about"  component={About} />
       <Route path="/contact"  component={Contact} />
       <Route path="/profile"  component={Profile} />
@@ -201,38 +207,42 @@ class Home extends React.Component {
       {this.state.signed && <Redirect to='/login'/>}
         <div class="home-bg">
           <div class="home-text">
+            <p class="slogan">A New Way to</p>
+            <p class="slogan-bold">CONNECT</p>
+            <p class ="slogan-under">Staying home for the semester?<br/>Feeling lonely and bored?</p>
             <img class="home-img"/>
-            <div class="horizontal-center">
-                <div class="home-buttons"> <a href="/login" class="home-btn">Sign Up</a></div>
-                <div class="home-buttons"> <Link to="/login">Login</Link></div>
+            <div class="horizontal-right">
+                <div class="home-buttons-secondary"> <Link to="/login">Sign Up</Link></div>
+                <div class="home-buttons-primary"> <Link to="/login">Login</Link></div>
             </div>
           </div>
         </div>
-        <div class="home-bg2"></div>
-
+        <div class="home-bg-second">
+        </div>
         <footer>
-          <div class="footer-content">
-            <div class="footer-column">
-              <p class="footer-column-title">Company</p>
-              <p class="footer-column-links">About Us</p>
-              <p class="footer-column-links">Careers</p>
-              <p class="footer-column-links">Terms and Conditions</p>
-              <p class="footer-column-links">Privacy Policy</p>
-              <p class="footer-column-title"></p>
-            </div>
-            <div class="footer-column">
-              <p class="footer-column-title">Work with us</p>
-              <p class="footer-column-links">Friends</p>
-              <p class="footer-column-links">Advertise</p>
-            </div>
-            <div class="footer-column">
-              <p class="footer-column-title">Support</p>
-              <p class="footer-column-links">$10</p>
-              <p class="footer-column-links">$100</p>
+          <div class="footer-bg">
+            <div class="footer-content">
+              <div class="footer-column">
+                <p class="footer-column-title">Company</p>
+                <p class="footer-column-links">About us</p>
+                <p class="footer-column-links">Careers</p>
+                <p class="footer-column-links">Terms</p>
+                <p class="footer-column-links">Privacy</p>
+              </div>
+              <div class="footer-column">
+                <p class="footer-column-title">Work with us</p>
+                <p class="footer-column-links">Friends</p>
+                <p class="footer-column-links">Advertise</p>
+
+              </div>
+              <div class="footer-column">
+                <p class="footer-column-title">Donate</p>
+                <p class="footer-column-links">$10</p>
+                <p class="footer-column-links">$100</p>
+              </div>
             </div>
           </div>
         </footer>
-
       </div>
     );
   }
@@ -282,7 +292,7 @@ class Profile extends React.Component {
       friends: 0,
       match: null
     };
-
+    
 
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
@@ -773,7 +783,7 @@ class Login extends React.Component {
 class Logout extends React.Component {
   render() {
     return (<div>
-    <Redirect to="/"/>
+    <Redirect to="/justamity"/>
     </div>
   )
   }
