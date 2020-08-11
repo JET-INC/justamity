@@ -1,28 +1,30 @@
 {
   "files": {
-    "main.css": "/static/css/main.4dc0ef4a.chunk.css",
-    "main.js": "/static/js/main.380f9847.chunk.js",
-    "main.js.map": "/static/js/main.380f9847.chunk.js.map",
+    "main.css": "/static/css/main.a156220f.chunk.css",
+    "main.js": "/static/js/main.4912e7cb.chunk.js",
+    "main.js.map": "/static/js/main.4912e7cb.chunk.js.map",
     "runtime-main.js": "/static/js/runtime-main.3fd6edf4.js",
     "runtime-main.js.map": "/static/js/runtime-main.3fd6edf4.js.map",
     "static/css/2.7df41cd5.chunk.css": "/static/css/2.7df41cd5.chunk.css",
-    "static/js/2.6debd949.chunk.js": "/static/js/2.6debd949.chunk.js",
-    "static/js/2.6debd949.chunk.js.map": "/static/js/2.6debd949.chunk.js.map",
+    "static/js/2.f65a03f2.chunk.js": "/static/js/2.f65a03f2.chunk.js",
+    "static/js/2.f65a03f2.chunk.js.map": "/static/js/2.f65a03f2.chunk.js.map",
     "index.html": "/index.html",
-    "precache-manifest.2ddfe44adf4e20e28f6675f6113f0361.js": "/precache-manifest.2ddfe44adf4e20e28f6675f6113f0361.js",
+    "precache-manifest.a1e8c8fa5eaa88d6ee9339df1b550b8a.js": "/precache-manifest.a1e8c8fa5eaa88d6ee9339df1b550b8a.js",
     "service-worker.js": "/service-worker.js",
     "static/css/2.7df41cd5.chunk.css.map": "/static/css/2.7df41cd5.chunk.css.map",
-    "static/css/main.4dc0ef4a.chunk.css.map": "/static/css/main.4dc0ef4a.chunk.css.map",
-    "static/js/2.6debd949.chunk.js.LICENSE.txt": "/static/js/2.6debd949.chunk.js.LICENSE.txt",
-    "static/media/amlogo.png": "/static/media/amlogo.e4727183.png",
+    "static/css/main.a156220f.chunk.css.map": "/static/css/main.a156220f.chunk.css.map",
+    "static/js/2.f65a03f2.chunk.js.LICENSE.txt": "/static/js/2.f65a03f2.chunk.js.LICENSE.txt",
+    "static/media/amlogo2.PNG": "/static/media/amlogo2.fca9f407.PNG",
     "static/media/semantic.min.css": "/static/media/outline-icons.ef60a4f6.woff",
+    "static/media/head.svg": "/static/media/head.9960d83e.svg",
+    "static/media/homebluebg.png": "/static/media/homebluebg.9bdca393.png",
     "static/media/App.css": "/static/media/homeredbg.4197bcb6.png"
   },
   "entrypoints": [
     "static/js/runtime-main.3fd6edf4.js",
     "static/css/2.7df41cd5.chunk.css",
-    "static/js/2.6debd949.chunk.js",
-    "static/css/main.4dc0ef4a.chunk.css",
-    "static/js/main.380f9847.chunk.js"
+    "static/js/2.f65a03f2.chunk.js",
+    "static/css/main.a156220f.chunk.css",
+    "static/js/main.4912e7cb.chunk.js"
   ]
 }
