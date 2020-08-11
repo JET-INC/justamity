@@ -94,7 +94,7 @@ font-family: 'Raleway', serif;
 }
 
 .links-div-link {
-  font-size: 2.5vh;
+  font-size: 18px;
   font-weight: 300;
   padding: 20px 30px;
 }
@@ -484,10 +484,12 @@ a.header-link {
 }
 
 .horizontal-right {
+  text-align: right;
   display: flex;
   align-items: flex-end;
   justify-content: right;
   margin-right: -40px;
+  margin-left: auto;
   margin-top: 10px;
 }
 
@@ -603,7 +605,13 @@ a.header-link {
 
 .title-img {
   vertical-align: middle;
-  max-width: 115px;
+  max-width: 130px;
+}
+
+.head-img {
+  vertical-align: middle;
+  width: 2.5em;
+  color: grey;
 }
 
 .question-title {
@@ -631,13 +639,10 @@ a.header-link {
 }
 
 .home-bg-second {
-  padding-top: 100px;
-  background-image: url("homebluebg.png");
   background-color: #DD5272;
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: top;
-  height: 1120px;
   display: flex;
   align-items: center;
 }
@@ -653,6 +658,7 @@ a.header-link {
   height: 100%;
   display: flex;
   align-items: center;
+  min-height: 100%;
 }
 
 .home-text {
@@ -665,10 +671,10 @@ a.header-link {
 }
 
 .home-buttons-secondary {
-  margin: 10px;
+  margin: 1.5vw;
   text-align: left;
   margin-top: auto;
-  margin-bottom: 30px;
+  margin-bottom: auto;
   border-radius: 23px;
   background-color: white;
   color: #DD5272;
@@ -677,8 +683,9 @@ a.header-link {
   font-size: 20px;
   cursor: pointer;
   border: 3.5px solid white;
-  width: 160px;
+  width: 10vw;
   margin-right: 15px;
+  font-weight: bold;
 }
 
 .home-buttons-secondary a {
@@ -697,25 +704,17 @@ a.header-link {
   font-size: 20px;
   cursor: pointer;
   border: 3.5px solid white;
-  width: 160px;
+  width: 10vw;
   color: white;
   max-width: 100%;
+  margin-right: 0.75vw;
+  font-weight: bold;
 }
 
 .home-buttons-primary:hover {
-  margin: 1.5vw;
-  text-align: left;
-  margin-top: auto;
-  margin-bottom: auto;
-  border-radius: 23px;
   background-color: white;
   color: #DD5272;
-  padding: 14px 10px;
-  text-align: center;
-  font-size: 20px;
-  cursor: pointer;
   border: 3.5px solid white;
-  font-weight: bold;
 }
 
 .home-buttons-secondary:hover {
@@ -752,7 +751,7 @@ a.header-link {
 }
 
 .footer-column-links {
-    font-size: 16px;
+  font-size: 16px;
 }
 
 .notification-bubble {
@@ -773,6 +772,19 @@ a.header-link {
 .notification-bubble-text {
   margin: auto;
   padding: 0px;
+}
+
+.about-top-div {
+  background-color: #DD5272;
+  height: 150px;
+  padding-top: 20px;
+}
+
+.about-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 70px;
+  color: white;
 }
 
 ul {

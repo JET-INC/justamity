@@ -7,7 +7,9 @@ import Application from "./Components/Application";
 import UserProvider from "./providers/UserProvider";
 import ProfilePage from "./Components/ProfilePage";
 import { UserContext } from "./providers/UserProvider";
-import logo2 from './amlogo.png';
+import logo2 from './amlogo2.PNG';
+import head from './head.svg';
+import homebluebg from './homebluebg.png';
 import mailSymbol from './mail2.png'
 import 'semantic-ui-css/semantic.min.css'
 import './App.css';
@@ -36,6 +38,18 @@ import ReactTooltip from 'react-tooltip';
 
 var database = firebase.database();
 
+// Format for interest vectors
+// [animals, physical, intellectual, artistic, culinary]
+const interests = {
+  'AFX': [0, 1, 0, 1, 0],
+  'Birds':[1, 0, 0, 0, 0],
+  'Cats':[1, 0, 1, 0 ,0], 
+  'Computer Science':[0, 0, 1, 1, 0],
+  'Dogs':[1, 0, 0, 0, 0], 
+  'Food':[0, 0, 0, 1, 1],
+  'Rocket League': [0, 1, 1, 1 ,0]
+};
+
 const options = [
   { value: 'chocolate', label: 'Left part of US' },
   { value: 'strawberry', label: 'Right part of US' },
@@ -44,10 +58,13 @@ const options = [
 ];
 
 const optionsInterests = [
-  { value: 'cats', label: 'Cats' },
-  { value: 'dogs', label: 'Dogs' },
-  { value: 'birds', label: 'Birds' },
-  { value: 'lizards', label: 'Lizards' }
+  { value: 'AFX', label: 'AFX' },
+  { value: 'Birds', label: 'Birds' },
+  { value: 'Cats', label: 'Cats' },
+  { value: 'Computer Science', label: 'Computer Science' },
+  { value: 'Dogs', label: 'Dogs' },
+  { value: 'Food', label: 'Food' },
+  { value: 'Rocket League', label: 'Rocket League' }
 ];
 
 function App() {
@@ -91,8 +108,6 @@ class TopNavBar extends React.Component {
           this.setState({
             unreads: unreads
           });
-          console.log(unreads);
-          console.log(this.state.unreads)
         });
       } else {
         this.setState({
@@ -127,7 +142,7 @@ class TopNavBar extends React.Component {
               <a class="links-div-link"><Link to="/contact">contact</Link></a>
             </div>
             {!this.state.signed && this.state.stateFetched &&
-              <Link to="/login"><Icon name="user circle outline icon" disabled size="big"/></Link>
+              <Link to="/login"><img class="head-img" src={head}/></Link>
             }
           </div>
 
@@ -211,12 +226,13 @@ class Home extends React.Component {
             <p class ="slogan-under">Staying home for the semester?<br/>Feeling lonely and bored?</p>
             <img class="home-img"/>
             <div class="horizontal-right">
-                <div class="home-buttons-primary"> <Link to="/login">Sign Up</Link></div>
-                <div class="home-buttons-primary"> <Link to="/login">Login</Link></div>
+                <Link to="/login"><div class="home-buttons-secondary">Sign Up</div></Link>
+                <Link to="/login"><div class="home-buttons-primary">Login</div></Link>
             </div>
           </div>
         </div>
         <div class="home-bg-second">
+          <img src={homebluebg}/>
         </div>
         <footer>
           <div class="footer-bg">
@@ -304,7 +320,12 @@ class Profile extends React.Component {
               email: user.email,
               profile_picture : user.photoURL,
               uid: user.uid,
-              active_chat: 'test'
+              active_chat: 'test',
+              interests: [['Cats', [1, 0, 1, 0, 0]]],
+              bearing: [1, 0, 1, 0, 0]
+            });
+            database.ref('bearings/').update({
+              [user.uid]: [1, 0, 1, 0, 0]
             });
             database.ref('users/' + user.uid + '/contacts/test').set({
               messages: [['test', 'Hi, welcome to Amity. Friendships start here.']]
@@ -318,19 +339,39 @@ class Profile extends React.Component {
               profile_picture : user.photoURL,
               uid: user.uid,
               active_chat: 'test'
+            }).then(() => {
+              this.setState({
+                authenticated: true,
+                user: user,
+                uid: user.uid,
+                friends: Object.keys(snapshot.val().contacts).length - 1,
+                location: "Left part of US"
+              });
             });
           } else {
+            database.ref('bearings/' + user.uid).once('value', (sp) => {
+              if (!sp.exists()) {
+                database.ref('bearings/').update({
+                  [user.uid]: [0, 0, 0, 0, 0]
+                });
+              }
+            });
+
+            var interests = [];
+            for (var v in snapshot.val().interests) {
+              interests.push({value: snapshot.val().interests[v][0], label: snapshot.val().interests[v][0]});
+            }
             this.setState({
-              contacts: snapshot.val().contacts
+              authenticated: true,
+              user: user,
+              uid: user.uid,
+              friends: Object.keys(snapshot.val().contacts).length - 1,
+              location: snapshot.val().location,
+              contacts: snapshot.val().contacts,
+              interests: interests,
+              bearing: snapshot.val().bearing
             });
           }
-          this.setState({
-            authenticated: true,
-            user: user,
-            uid: user.uid,
-            friends: Object.keys(snapshot.val().contacts).length - 1,
-            location: snapshot.val().location
-          });
         });
       } else {
         this.setState({
@@ -344,49 +385,68 @@ class Profile extends React.Component {
     database.ref('matches').once('value').then((snapshot) => {
       var potentialFriends = snapshot.val();
       var match = null;
-      console.log(potentialFriends);
-      for (var i = 0; i < potentialFriends.length; i++) {
-        if (!(potentialFriends[i] === this.state.uid)) {
-          if (!(potentialFriends[i] in this.state.contacts)) {
-            match = potentialFriends[i];
-            break;
+      var distance = 1000;
+      var allRef = database.ref('bearings/');
+      allRef.once('value').then((snapshot3) => {
+        var all = snapshot3.val();
+        for (var ing = 0; ing < potentialFriends.length; ing++) {
+          if (!(potentialFriends[ing] === this.state.uid)) {
+            if (!(potentialFriends[ing] in this.state.contacts)) {
+              if (all[potentialFriends[ing]]) {
+                var score = 0;
+                var sum1 = 1;
+                var sum2 = 1;
+                for (var v in all[potentialFriends[ing]]) {
+                  sum1 += all[potentialFriends[ing]][v];
+                }
+                for (var v in this.state.bearing) {
+                  sum2 += this.state.bearing[v];
+                }
+                for (var v in all[potentialFriends[ing]]) {
+                  score += (all[potentialFriends[ing]][v]/sum1 - this.state.bearing[v]/sum2) ** 2;
+                }
+                console.log("Friend distance score: " + score);
+                if (score < distance) {
+                  var match = potentialFriends[ing];
+                }
+              }
+            }
           }
         }
-      }
-      if (match) {
-        database.ref('users/' + this.state.uid + '/contacts/' + match).set({
-          messages: [[this.state.user.uid, 'Hello']]
-        });
-        database.ref('users/' + match + '/contacts/' + this.state.user.uid).set({
-          messages: [[this.state.user.uid, 'Hello']]
-        });
-        if (!(this.state.match === "yes")) {
-          setTimeout(() => {
-            this.setState({
-              match: null
-            });
-          },3000);
-          this.setState({
-            match: "yes"
+        if (match) {
+          database.ref('users/' + this.state.uid + '/contacts/' + match).set({
+            messages: [[this.state.user.uid, 'Hello']]
           });
-        }
-      } else {
-        if (!(this.state.match === "no")) {
-          setTimeout(() => {
-            this.setState({
-              match: null
-            });
-          },3000);
-          this.setState({
-            match: "no"
+          database.ref('users/' + match + '/contacts/' + this.state.user.uid).set({
+            messages: [[this.state.user.uid, 'Hello']]
           });
+          if (!(this.state.match === "yes")) {
+            setTimeout(() => {
+              this.setState({
+                match: null
+              });
+            },3000);
+            this.setState({
+              match: "yes"
+            });
+          }
+        } else {
+          if (!(this.state.match === "no")) {
+            setTimeout(() => {
+              this.setState({
+                match: null
+              });
+            },3000);
+            this.setState({
+              match: "no"
+            });
+          }
         }
-      }
-    });
+      });
+    });    
   }
 
   handleSelect = (e) => {
-    console.log(e);
     var locationRef = firebase.database().ref('profiles/' + this.state.user.uid);
     locationRef.update({
         location: e.label
@@ -396,7 +456,99 @@ class Profile extends React.Component {
         location: e.label
     });
   }
+  
+  handleSelectInterest = (e, f) => {
+    if (f.action == "remove-value") {
+      for (var i in this.state.interests) {
+        if (this.state.interests[i] == f.removedValue) {
+          var interestRef = firebase.database().ref('users/' + this.state.user.uid + '/interests/' + (i));
+          interestRef.remove();
+        }
+      }
+      var bearingRef = firebase.database().ref('users/' + this.state.user.uid + '/bearing');
+      bearingRef.once('value').then((snapshot) => {
+        bearingRef.update({
+            0: snapshot.val()[0] - interests[f.removedValue.label][0],
+            1: snapshot.val()[1] - interests[f.removedValue.label][1],
+            2: snapshot.val()[2] - interests[f.removedValue.label][2],
+            3: snapshot.val()[3] - interests[f.removedValue.label][3],
+            4: snapshot.val()[4] - interests[f.removedValue.label][4]
+        });
+      });
+      var bearingRef2 = firebase.database().ref('bearings/' + this.state.user.uid);
+      bearingRef2.once('value').then((snapshot) => {
+        bearingRef2.update({
+            0: snapshot.val()[0] - interests[f.removedValue.label][0],
+            1: snapshot.val()[1] - interests[f.removedValue.label][1],
+            2: snapshot.val()[2] - interests[f.removedValue.label][2],
+            3: snapshot.val()[3] - interests[f.removedValue.label][3],
+            4: snapshot.val()[4] - interests[f.removedValue.label][4]
+        });
+      });
+      this.setState({
+        interests: e
+      });
+      var out = [];
+      for (var i in e) {
+        out.push([e[i].label, interests[e[i].label]]);
+      }
+      var interestRef2 = firebase.database().ref('users/' + this.state.user.uid + '/interests');
+      if (out) {
+        interestRef2.remove();
+        interestRef2.set(out);
+      } else {
+        interestRef2.remove();
+      }
 
+    } else {
+      this.setState({
+        interests: e
+      })
+      var interestRef = firebase.database().ref('users/' + this.state.user.uid + '/interests');
+      interestRef.once('value').then((snapshot) => {
+        interestRef.update({
+            [snapshot.val() ? snapshot.val().length : 0]: [e[e.length - 1].label, interests[e[e.length - 1].label]]
+        });
+      });
+      var bearingRef = firebase.database().ref('users/' + this.state.user.uid + '/bearing');
+      var bearingRef2 = firebase.database().ref('bearings/' + this.state.user.uid);
+      bearingRef.once('value').then((snapshot) => {
+        if (snapshot.exists()) {
+          bearingRef.update({
+              0: snapshot.val()[0] + interests[e[e.length - 1].label][0],
+              1: snapshot.val()[1] + interests[e[e.length - 1].label][1],
+              2: snapshot.val()[2] + interests[e[e.length - 1].label][2],
+              3: snapshot.val()[3] + interests[e[e.length - 1].label][3],
+              4: snapshot.val()[4] + interests[e[e.length - 1].label][4]
+          });
+          bearingRef2.update({
+              0: snapshot.val()[0] + interests[e[e.length - 1].label][0],
+              1: snapshot.val()[1] + interests[e[e.length - 1].label][1],
+              2: snapshot.val()[2] + interests[e[e.length - 1].label][2],
+              3: snapshot.val()[3] + interests[e[e.length - 1].label][3],
+              4: snapshot.val()[4] + interests[e[e.length - 1].label][4]
+          });
+        } else {
+          bearingRef.update({
+              0: interests[e[e.length - 1].label][0],
+              1: interests[e[e.length - 1].label][1],
+              2: interests[e[e.length - 1].label][2],
+              3: interests[e[e.length - 1].label][3],
+              4: interests[e[e.length - 1].label][4]
+          });
+          bearingRef2.update({
+            0: interests[e[e.length - 1].label][0],
+            1: interests[e[e.length - 1].label][1],
+            2: interests[e[e.length - 1].label][2],
+            3: interests[e[e.length - 1].label][3],
+            4: interests[e[e.length - 1].label][4]
+          });
+        }
+
+      });
+    }
+  }
+  
   tags = (lst) => {
     var ret = [];
     for (var x in lst) {
@@ -470,13 +622,14 @@ class Profile extends React.Component {
               <div class="friends">
                 <p class="profile-friends-title">Interests</p>
                 <Select
-                  onChange={null}
+                  isMulti
+                  className="basic-multi-select"
+                  classNamePrefix="select"
+                  onChange={this.handleSelectInterest}
                   options={optionsInterests}
-                  defaultValue={{ label: "Search for interest", value: 1 }}
+                  value={this.state.interests}
+                  isClearable={false}
                 />
-                <div class="horizontal-wrap">
-                  {this.tags(["Bananas", "Rocket League", "Cats", "Phones", "Strings", "Shoes", "Hats"])}
-                </div>
               </div>
             </div>
           </div>
@@ -503,12 +656,10 @@ class Messages extends React.Component {
       inputValue: ''
     };
     var dt = new Date();
-    console.log(dt);
     var randomColor = (function lol(m, s, c) {
                     return s[m.floor(m.random() * s.length)] +
                         (c && lol(m, s, c - 1));
                 });
-    console.log(randomColor(Math, '3456789ABCDEF', 4));
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         var user = firebase.auth().currentUser;
@@ -542,7 +693,6 @@ class Messages extends React.Component {
         this.setState({
           activeChat: snapshot.val()
         });
-        console.log(snapshot.val());
       });
 
 
@@ -660,7 +810,6 @@ class Messages extends React.Component {
 
   renderChatFocus = (contact) => {
     const messages = [];
-    console.log(this.state.contactRef);
     if (this.isIterable(this.state.contactRef.messages)) {
       for (let message of this.state.contactRef.messages) {
         if (message[0] === firebase.auth().currentUser.uid) {
@@ -741,7 +890,9 @@ class About extends React.Component {
   render() {
     return (
       <div>
-        We are cool Cal students with a mission.
+        <div class="about-top-div">
+          <p class="about-title">Coming Soon</p>
+        </div>
       </div>
     );
   }
