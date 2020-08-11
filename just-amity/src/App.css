@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:400,800&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800&display=swap');
 
 #root {
   height: 100%;
@@ -605,7 +605,7 @@ a.header-link {
 
 .title-img {
   vertical-align: middle;
-  max-width: 130px;
+  max-width: 165px;
 }
 
 .head-img {
@@ -691,6 +691,10 @@ a.header-link {
 .home-buttons-secondary a {
   color: #DD5272;
   font-weight: 900;
+}
+
+.home-bg-second-img {
+  max-width: 100%;
 }
 
 .home-buttons-primary {
@@ -785,6 +789,17 @@ a.header-link {
   font-weight: 900;
   font-size: 70px;
   color: white;
+}
+
+.color-display {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  margin-top: 0px;
+}
+
+.color-display button {
+
 }
 
 ul {

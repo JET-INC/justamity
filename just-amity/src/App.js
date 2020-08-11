@@ -7,7 +7,7 @@ import Application from "./Components/Application";
 import UserProvider from "./providers/UserProvider";
 import ProfilePage from "./Components/ProfilePage";
 import { UserContext } from "./providers/UserProvider";
-import logo2 from './amlogo2.PNG';
+import logo2 from './amlogo3.png';
 import head from './head.svg';
 import homebluebg from './homebluebg.png';
 import mailSymbol from './mail2.png'
@@ -35,19 +35,49 @@ import { Dropdown } from 'semantic-ui-react'
 import { Card, Feed } from 'semantic-ui-react'
 import { Statistic } from 'semantic-ui-react'
 import ReactTooltip from 'react-tooltip';
-
+import { TwitterPicker } from 'react-color';
 var database = firebase.database();
 
 // Format for interest vectors
 // [animals, physical, intellectual, artistic, culinary]
 const interests = {
   'AFX': [0, 1, 0, 1, 0],
+  'Anime': [0, 0, 1, 1, 0],
+  'Art': [0, 0, 0, 1, 0],
+  'Ballet': [0, 1, 0, 1, 0],
   'Birds':[1, 0, 0, 0, 0],
+  'Canada': [0, 0, 0, 0, 0],
+  'Carol Christ': [0, 0, 1, 0, 0],
   'Cats':[1, 0, 1, 0 ,0], 
   'Computer Science':[0, 0, 1, 1, 0],
-  'Dogs':[1, 0, 0, 0, 0], 
-  'Food':[0, 0, 0, 1, 1],
-  'Rocket League': [0, 1, 1, 1 ,0]
+  'Data Science': [0, 0, 1, 0 , 0],
+  'Dogs': [1, 0, 0, 0, 0], 
+  'Engineering': [0, 1, 1, 0, 0],
+  'Engines': [0, 0, 0, 0, 0],
+  'Food': [0, 0, 0, 1, 1],
+  'Fudge': [0, 0, 0, 0, 1],
+  'Games': [0, 0, 0, 0, 0],
+  'Gongs': [0, 0, 0, 1, 0],
+  'Hills': [0, 1, 0, 1, 0],
+  'Intelligence': [0, 0, 1, 0, 0],
+  'John Denero': [0, 0, 1, 0, 0],
+  'Knitting': [0, 1, 0, 1, 0],
+  'Lamps': [0, 0, 0, 0, 0],
+  'Manga': [0, 0, 0, 1, 0],
+  'Napping': [0, 0, 0, 0, 0],
+  'Oranges': [0, 0, 0, 0, 1],
+  'Pineapples': [0, 0, 0, 0, 1],
+  'Queso': [0, 0, 0, 0, 1],
+  'Rocket League': [0, 1, 1, 1, 0],
+  'Salad': [0, 0, 0, 0, 1],
+  'Snapchat': [0, 0, 1, 1, 0],
+  'Television': [0, 0, 0, 1, 0],
+  'Unicorns': [1, 0, 0, 1, 0],
+  'Volleyball': [0, 1, 0, 0, 0],
+  'Wood': [0, 1, 0, 0, 0],
+  'Xylophones': [0, 0, 0, 1, 0],
+  'Yelling': [0, 1, 0, 0, 0],
+  'Zzzzz': [0, 0, 0, 0, 0]
 };
 
 const options = [
@@ -57,15 +87,11 @@ const options = [
   { value: 'orange', label: 'Bottom part of US' }
 ];
 
-const optionsInterests = [
-  { value: 'AFX', label: 'AFX' },
-  { value: 'Birds', label: 'Birds' },
-  { value: 'Cats', label: 'Cats' },
-  { value: 'Computer Science', label: 'Computer Science' },
-  { value: 'Dogs', label: 'Dogs' },
-  { value: 'Food', label: 'Food' },
-  { value: 'Rocket League', label: 'Rocket League' }
-];
+var optionsInterests = [];
+for (var v in interests) {
+  optionsInterests.push({value: v, label: v});
+}
+console.log(optionsInterests);
 
 function App() {
   return (
@@ -232,7 +258,7 @@ class Home extends React.Component {
           </div>
         </div>
         <div class="home-bg-second">
-          <img src={homebluebg}/>
+          <img class="home-bg-second-img" src={homebluebg}/>
         </div>
         <footer>
           <div class="footer-bg">
@@ -315,6 +341,10 @@ class Profile extends React.Component {
         var users = firebase.database().ref('users/' + user.uid);
         users.on('value', (snapshot) => {
           if (!snapshot.exists()) {
+            var randomColor = (function lol(m, s, c) {
+                            return s[m.floor(m.random() * s.length)] +
+                                (c && lol(m, s, c - 1));
+                        });
             database.ref('users/' + user.uid).set({
               display_name: user.displayName,
               email: user.email,
@@ -322,7 +352,8 @@ class Profile extends React.Component {
               uid: user.uid,
               active_chat: 'test',
               interests: [['Cats', [1, 0, 1, 0, 0]]],
-              bearing: [1, 0, 1, 0, 0]
+              bearing: [1, 0, 1, 0, 0],
+              color: '#' + randomColor(Math, '356789ABCDEF', 4)
             });
             database.ref('bearings/').update({
               [user.uid]: [1, 0, 1, 0, 0]
@@ -356,6 +387,11 @@ class Profile extends React.Component {
                 });
               }
             });
+            var d = new Date();
+            var n = d.toString(); 
+            database.ref('users/' + user.uid).update({
+              last_login: n
+            });
 
             var interests = [];
             for (var v in snapshot.val().interests) {
@@ -369,7 +405,8 @@ class Profile extends React.Component {
               location: snapshot.val().location,
               contacts: snapshot.val().contacts,
               interests: interests,
-              bearing: snapshot.val().bearing
+              bearing: snapshot.val().bearing,
+              color: snapshot.val().color
             });
           }
         });
@@ -407,6 +444,7 @@ class Profile extends React.Component {
                 }
                 console.log("Friend distance score: " + score);
                 if (score < distance) {
+                  distance = score;
                   var match = potentialFriends[ing];
                 }
               }
@@ -562,6 +600,29 @@ class Profile extends React.Component {
     }
     return ret
   }
+  
+  handleColorClick = () => {
+    this.setState({ displayColorPicker: !this.state.displayColorPicker })
+  };
+
+  handleColorClose = () => {
+    this.setState({ displayColorPicker: false })
+  };
+  
+  handleColorSelect = (color, event) => {
+    var colorRef = firebase.database().ref('profiles/' + this.state.user.uid);
+    colorRef.update({
+      color: color.hex
+    });
+    var colorRef2 = firebase.database().ref('users/' + this.state.user.uid);
+    colorRef2.update({
+      color: color.hex
+    });
+    this.setState({
+      color: color.hex
+    });
+    console.log(color.hex)
+  }
 
   render() {
     if (firebase.auth().currentUser) {
@@ -569,7 +630,7 @@ class Profile extends React.Component {
         <div>
           <div class="profile-container">
             <div class="profile-left">
-              <img class="profile-img" src={firebase.auth().currentUser.photoURL}/>
+              <img class="profile-img" src={"https://ui-avatars.com/api/?length=1&background=" + (this.state.color ? this.state.color.substring(1): this.state.color) + "&color=fff&size=256&bold=true&name=" + firebase.auth().currentUser.displayName.split(" ")[0]}/>
               <Header as="h2">{firebase.auth().currentUser.displayName}</Header>
               <div class="vertical" style={{margin: "10px"}}>
                 <Statistic color='teal' size='mini'>
@@ -577,7 +638,7 @@ class Profile extends React.Component {
                   <Statistic.Value>Jan '20</Statistic.Value>
                 </Statistic>
               </div>
-              <Button color='teal' onClick={f => firebase.auth().signOut()}>Logout</Button>
+              <button onClick={f => firebase.auth().signOut()}>Logout</button>
             </div>
             {this.state.match && this.state.match === "yes" &&
               (<div class="footer-toast" ref="toast-friend">
@@ -599,7 +660,7 @@ class Profile extends React.Component {
                 <p class="profile-friends-count">You currently have {this.state.friends} friend{this.state.friends != 1 && 's'}.</p>
                 <Progress data-tip="Your friend making energy<br>meter is recharging." percent={56} progress style={{margin: "10px 0px"}}/>
                 <ReactTooltip place="bottom" effect="solid" offset={{top: 0, right: 75}} multiline="true" />
-                <Button color='teal' onClick={this.match} style={{width: "150px"}}><Icon name='user' />Make friend</Button>
+                <button onClick={this.match} style={{width: "150px"}}><Icon name='user' />Make friend</button>
               </div>
               <div>
                 <p class="profile-friends-title">Profile</p>
@@ -616,6 +677,14 @@ class Profile extends React.Component {
                   options={options}
                   defaultValue={{ label: "None", value: 1 }}
                 />}
+                <p class="profile-property-title">Profile Color</p>
+                <div class='color-display'>
+                  <button style={{backgroundColor: this.state.color}} onClick={ this.handleColorClick }>Edit Color</button>
+                  { this.state.displayColorPicker ? <div>
+                    <div onClick={ this.handleColorClose }/>
+                      <TwitterPicker onChange={this.handleColorSelect} triangle="hide"/>
+                    </div> : null }
+                </div>
               </div>
             </div>
             <div class="profile-right-right">
@@ -656,10 +725,6 @@ class Messages extends React.Component {
       inputValue: ''
     };
     var dt = new Date();
-    var randomColor = (function lol(m, s, c) {
-                    return s[m.floor(m.random() * s.length)] +
-                        (c && lol(m, s, c - 1));
-                });
     firebase.auth().onAuthStateChanged((user) => {
       if (user) {
         var user = firebase.auth().currentUser;
@@ -669,25 +734,25 @@ class Messages extends React.Component {
             this.setState({
               profiles: data.val()
             });
-          });
-        firebase.database().ref('/users/' + snapshot0.val().active_chat).once('value').then((snapshot) => {
-          users.on('value', (snapshot2) => {
-            this.setState({
-              contactObj: snapshot.val(),
-              contactRef: snapshot2.val().contacts[snapshot2.val().active_chat],
-              authenticated: true,
-              user: snapshot2.val()
-            });
-            if (this.colors) {
-              for (var contact in snapshot2.val().contacts) {
+            firebase.database().ref('/users/' + snapshot0.val().active_chat).once('value').then((snapshot) => {
+              users.on('value', (snapshot2) => {
                 this.setState({
-                  [contact]: randomColor(Math, '356789ABCDEF', 4)
+                  contactObj: snapshot.val(),
+                  contactRef: snapshot2.val().contacts[snapshot2.val().active_chat],
+                  authenticated: true,
+                  user: snapshot2.val()
                 });
-              }
-              this.colors = false;
-            }
+                if (this.colors) {
+                  for (var contact in snapshot2.val().contacts) {
+                    this.setState({
+                      [contact]: data.val()[contact].color ? data.val()[contact].color.substring(1) : this.randomColor(Math, '356789ABCDEF', 4)
+                    });
+                  }
+                  this.colors = false;
+                }
+              });
+            });
           });
-        });
       });
       firebase.database().ref('users/' + user.uid + '/active_chat').on('value', (snapshot) => {
         this.setState({
@@ -706,7 +771,7 @@ class Messages extends React.Component {
     var lastMessage = this.state.user.contacts[contact].messages[Object.keys(this.state.user.contacts[contact].messages).length - 1];
     var unread = this.state.user.contacts[contact].unread;
     return (<div onMouseOver={this.readMessage} class={this.state.activeChat === contact ? "chat-list-item-active" : "chat-list-item"} onClick={() => {firebase.database().ref('users/' + this.state.user.uid).update({active_chat: contact});}}>
-      <img class="chat-list-item-profile" src={"https://ui-avatars.com/api/?length=1&background=" + this.state[contact] + "&color=fff&bold=true&name=" + this.state.profiles[contact].display_name.split(" ")[0]}/>
+      <img class="chat-list-item-profile" src={"https://ui-avatars.com/api/?length=1&background=" + (this.state[contact] ? this.state[contact] : "#000") + "&color=fff&bold=true&name=" + this.state.profiles[contact].display_name.split(" ")[0]}/>
       <div class="chat-list-item-text">
         <p class={!unread ? "chat-list-item-name" : "chat-list-item-name-unread"}>{this.state.profiles[contact].display_name.split(" ")[0]}</p>
         <p class={!unread ? "chat-list-item-message" : "chat-list-item-message-unread"}>{lastMessage ? lastMessage[1] : ""}</p>
