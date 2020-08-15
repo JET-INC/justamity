@@ -12,6 +12,7 @@
     "firebaseui": "^4.5.1",
     "npm-start": "^1.4.2",
     "react": "^16.13.1",
+    "react-adsense": "^0.1.0",
     "react-autosuggest": "^10.0.2",
     "react-color": "^2.18.1",
     "react-dom": "^16.13.1",
