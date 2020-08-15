@@ -48,10 +48,10 @@ const interests = {
   'Birds':[1, 0, 0, 0, 0],
   'Canada': [0, 0, 0, 0, 0],
   'Carol Christ': [0, 0, 1, 0, 0],
-  'Cats':[1, 0, 1, 0 ,0], 
+  'Cats':[1, 0, 1, 0 ,0],
   'Computer Science':[0, 0, 1, 1, 0],
   'Data Science': [0, 0, 1, 0 , 0],
-  'Dogs': [1, 0, 0, 0, 0], 
+  'Dogs': [1, 0, 0, 0, 0],
   'Engineering': [0, 1, 1, 0, 0],
   'Engines': [0, 0, 0, 0, 0],
   'Food': [0, 0, 0, 1, 1],
@@ -388,7 +388,7 @@ class Profile extends React.Component {
               }
             });
             var d = new Date();
-            var n = d.toString(); 
+            var n = d.toString();
             database.ref('users/' + user.uid).update({
               last_login: n
             });
@@ -481,7 +481,7 @@ class Profile extends React.Component {
           }
         }
       });
-    });    
+    });
   }
 
   handleSelect = (e) => {
@@ -494,7 +494,7 @@ class Profile extends React.Component {
         location: e.label
     });
   }
-  
+
   handleSelectInterest = (e, f) => {
     if (f.action == "remove-value") {
       for (var i in this.state.interests) {
@@ -586,7 +586,7 @@ class Profile extends React.Component {
       });
     }
   }
-  
+
   tags = (lst) => {
     var ret = [];
     for (var x in lst) {
@@ -600,7 +600,7 @@ class Profile extends React.Component {
     }
     return ret
   }
-  
+
   handleColorClick = () => {
     this.setState({ displayColorPicker: !this.state.displayColorPicker })
   };
@@ -608,7 +608,7 @@ class Profile extends React.Component {
   handleColorClose = () => {
     this.setState({ displayColorPicker: false })
   };
-  
+
   handleColorSelect = (color, event) => {
     var colorRef = firebase.database().ref('profiles/' + this.state.user.uid);
     colorRef.update({
@@ -916,6 +916,7 @@ class Messages extends React.Component {
   renderSuggestions = () => {
     return (
       <div class="chat-suggestions-div">
+      <script data-ad-client="ca-pub-6875330278842419" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <img class="chat-suggestion-img" src="http://www.topdesignmag.com/wp-content/uploads/2012/05/5.-vintage-newspaper-ad.jpg"></img>
         <img class="chat-suggestion-img" src="https://i.pinimg.com/originals/0b/5f/67/0b5f6794c6c32f7c94cffd8f68d1a325.jpg"></img>
         <img class="chat-suggestion-img" src="https://c2.staticflickr.com/2/1593/25044909010_90d6a29099_b.jpg"></img>
