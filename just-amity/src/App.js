@@ -159,6 +159,7 @@ class TopNavBar extends React.Component {
     document.body.style.overflow = 'auto';
     return (<Router>
       <main>
+      <script data-ad-client="ca-pub-6875330278842419" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <nav class="top-scroll">
           <Link to="/"><img class="title-img" src={logo2}/></Link>
           <div class="links-div">
@@ -916,7 +917,6 @@ class Messages extends React.Component {
   renderSuggestions = () => {
     return (
       <div class="chat-suggestions-div">
-      <script data-ad-client="ca-pub-6875330278842419" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
         <img class="chat-suggestion-img" src="http://www.topdesignmag.com/wp-content/uploads/2012/05/5.-vintage-newspaper-ad.jpg"></img>
         <img class="chat-suggestion-img" src="https://i.pinimg.com/originals/0b/5f/67/0b5f6794c6c32f7c94cffd8f68d1a325.jpg"></img>
         <img class="chat-suggestion-img" src="https://c2.staticflickr.com/2/1593/25044909010_90d6a29099_b.jpg"></img>
