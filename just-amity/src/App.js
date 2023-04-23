@@ -631,7 +631,7 @@ class Profile extends React.Component {
         <div>
           <div class="profile-container">
             <div class="profile-left">
-              <img class="profile-img" src={"https://ui-avatars.com/api/?length=1&background=" + (this.state.color ? this.state.color.substring(1): this.state.color) + "&color=fff&size=256&bold=true&name=" + firebase.auth().currentUser.displayName.split(" ")[0]}/>
+              <img class="profile-img" src={"https://ui-avatars.com/api/?length=1&background=" + (this.state.color ? this.state.color.substring(1) : "0000FF") + "&color=fff&size=256&bold=true&name=" + firebase.auth().currentUser.displayName.split(" ")[0]}/>
               <Header as="h2">{firebase.auth().currentUser.displayName}</Header>
               <div class="vertical" style={{margin: "10px"}}>
                 <Statistic color='teal' size='mini'>
@@ -917,7 +917,6 @@ class Messages extends React.Component {
   renderSuggestions = () => {
     return (
       <div class="chat-suggestions-div">
-        <img class="chat-suggestion-img" src="http://www.topdesignmag.com/wp-content/uploads/2012/05/5.-vintage-newspaper-ad.jpg"></img>
         <img class="chat-suggestion-img" src="https://i.pinimg.com/originals/0b/5f/67/0b5f6794c6c32f7c94cffd8f68d1a325.jpg"></img>
         <img class="chat-suggestion-img" src="https://c2.staticflickr.com/2/1593/25044909010_90d6a29099_b.jpg"></img>
       </div>
